@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+body {
+  background-color: #111111;
+  color: #ffffff;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.25);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 2px;
+  display: inline-block;
+}
