@@ -11,23 +11,33 @@ export default function ProductCard({ product, onQuickView }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-premium-black/70 via-premium-black/0 to-premium-black/0" />
+        {product.style ? (
+          <span className="absolute left-3 top-3 rounded-full bg-premium-black/70 px-3 py-1 text-xs font-semibold text-brand-amber ring-1 ring-brand-amber/30">
+            {product.style}
+          </span>
+        ) : null}
       </div>
 
       <div className="p-5">
-        <h3 className="line-clamp-2 text-base font-semibold text-white/95">{product.name}</h3>
-        <p className="mt-1 text-xs text-white/60">
-          Xuất xứ: <span className="text-white/75">{product.origin}</span> · ABV:{' '}
-          <span className="text-white/75">{product.abv}</span>
+        <h3 className="line-clamp-2 text-base font-semibold text-white">{product.name}</h3>
+        <p className="mt-1 text-sm text-body-muted">
+          Xuất xứ: <span className="text-white/90">{product.origin}</span>
+          {product.abv ? (
+            <>
+              {' '}
+              · ABV: <span className="text-white/90">{product.abv}</span>
+            </>
+          ) : null}
         </p>
 
-        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/70">{product.description}</p>
+        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-body-muted">{product.description}</p>
 
         <div className="mt-4 flex items-center justify-between gap-3">
-          <div className="text-lg font-bold text-premium-gold">{formatPrice(product.price)}</div>
+          <div className="text-lg font-bold text-brand-amber">{formatPrice(product.price)}</div>
           <button
             type="button"
             onClick={() => onQuickView?.(product)}
-            className="inline-flex h-11 items-center justify-center rounded-md bg-premium-gold px-4 text-sm font-semibold text-premium-black shadow-lg shadow-black/30 ring-1 ring-premium-gold/30 hover:bg-yellow-600"
+            className="inline-flex min-h-11 items-center justify-center rounded-md border border-brand-amber/50 bg-premium-black/50 px-4 text-sm font-semibold text-brand-amber transition hover:border-brand-amber hover:bg-premium-black"
           >
             Xem nhanh
           </button>
@@ -36,4 +46,3 @@ export default function ProductCard({ product, onQuickView }) {
     </article>
   );
 }
-

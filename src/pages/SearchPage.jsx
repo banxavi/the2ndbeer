@@ -20,12 +20,12 @@ export default function SearchPage() {
   }, [products, q]);
 
   return (
-    <section className="pt-10">
+    <div className="site-container pt-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <div className="text-xs font-semibold tracking-normal text-premium-gold">TÌM KIẾM</div>
+          <div className="text-xs font-semibold tracking-normal text-brand-amber">TÌM KIẾM · THE 2ND BEER</div>
           <h1 className="mt-2 text-3xl font-semibold">Kết quả tìm kiếm</h1>
-          <p className="mt-2 text-sm text-white/70">
+          <p className="mt-2 text-sm text-body-muted">
             Từ khoá: <span className="text-white/85">“{q || '—'}”</span>
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function SearchPage() {
       </div>
 
       <ProductQuickViewModal open={Boolean(active)} product={active} onClose={() => setActive(null)} />
-    </section>
+    </div>
   );
 }
 

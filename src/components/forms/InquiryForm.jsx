@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { buildMailtoHref, buildZaloHref } from '../../lib/links';
 
 const DEFAULT_TO_EMAIL = 'info@example.com';
-const HOTLINE = '0931833666';
+const HOTLINE = '0907566279';
 
 export default function InquiryForm() {
   const [name, setName] = useState('');

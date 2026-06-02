@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 export default function PageLayout({ children }) {
   return (
-    <div className="relative min-h-screen bg-premium-black text-white font-sans">
+    <div className="relative min-h-screen overflow-x-clip bg-premium-black text-white font-sans">
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute inset-0 opacity-[0.32]">
           <img
@@ -18,10 +18,10 @@ export default function PageLayout({ children }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(212,175,55,0.18),transparent_55%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.14),transparent_50%)]" />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 overflow-x-clip">
         <Header />
         <ProductSearchBar />
-        <main className="mx-auto max-w-6xl px-4 pb-16">{children}</main>
+        <main className="w-full max-w-full pb-16">{children}</main>
         <Footer />
       </div>
     </div>

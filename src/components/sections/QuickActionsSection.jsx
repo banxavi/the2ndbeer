@@ -1,11 +1,12 @@
 import { buildTelHref, buildZaloHref } from '../../lib/links';
 import { formatPhoneDisplay } from '../../lib/formatters';
+import FadeInSection from '../ui/FadeInSection';
 
-const HOTLINE = '0931833666';
+const HOTLINE = '0907566279';
 
 export default function QuickActionsSection() {
   return (
-    <section className="pt-6">
+    <FadeInSection className="pt-6">
       <div className="grid gap-3 sm:grid-cols-2">
         <a
           href={buildZaloHref(HOTLINE)}
@@ -28,7 +29,7 @@ export default function QuickActionsSection() {
           Gọi {formatPhoneDisplay(HOTLINE)}
         </a>
       </div>
-    </section>
+    </FadeInSection>
   );
 }
 

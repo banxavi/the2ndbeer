@@ -1,46 +1,52 @@
-import { formatPhoneDisplay } from '../../lib/formatters';
-import { buildTelHref, buildZaloHref } from '../../lib/links';
+import PrimaryCta from '../ui/PrimaryCta';
 
-const HOTLINE = '0931833666';
+const socialLinks = [
+  { label: 'Instagram', href: 'https://instagram.com', icon: 'IG' },
+  { label: 'Facebook', href: 'https://facebook.com', icon: 'FB' },
+  { label: 'TikTok', href: 'https://tiktok.com', icon: 'TT' },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-premium-black">
-      <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid gap-8 md:grid-cols-3">
+    <footer className="mt-16 border-t border-white/10 bg-premium-black">
+      <div className="site-container py-12">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <div className="text-lg font-semibold tracking-[0.22em] text-premium-gold">BEER PREMIUM</div>
-            <p className="mt-2 text-sm text-white/70">
-              Landing page cá nhân (phi thương mại) cho sản phẩm bia nhập khẩu cao cấp.
-            </p>
+            <div className="text-xl font-bold text-brand-amber">The 2nd Beer</div>
+            <p className="mt-2 text-sm italic text-body-muted">One is never enough.</p>
+            <p className="mt-1 text-sm text-body-subtle">Lon thứ hai mới là lon đáng nhớ.</p>
+    
           </div>
 
           <div>
-            <div className="text-sm font-semibold text-white/80">Liên hệ</div>
-            <div className="mt-3 space-y-2 text-sm">
-              <a className="block text-white/80 hover:text-white" href={buildTelHref(HOTLINE)}>
-                Hotline: {formatPhoneDisplay(HOTLINE)}
-              </a>
-              <a
-                className="block text-white/80 hover:text-white"
-                href={buildZaloHref(HOTLINE)}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Zalo: {formatPhoneDisplay(HOTLINE)}
-              </a>
+            <div className="text-sm font-semibold text-white">Theo dõi chúng tôi</div>
+            <div className="mt-4 flex gap-3">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-premium-dark text-xs font-bold text-brand-amber transition hover:border-brand-amber/60 hover:bg-premium-black"
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <div className="text-sm font-semibold text-white/80">Cảnh báo</div>
-            <p className="mt-3 text-sm text-white/70">
-              Sản phẩm không dành cho người dưới 18 tuổi và phụ nữ mang thai
+            <div className="text-sm font-semibold text-white">Cảnh báo</div>
+            <p className="mt-3 text-sm text-body-muted">
+              Sản phẩm không dành cho người dưới 18 tuổi và phụ nữ mang thai.
             </p>
           </div>
         </div>
 
-        <div className="mt-10 text-xs text-white/50">© {new Date().getFullYear()} Beer Premium</div>
+        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-body-subtle">
+          © {new Date().getFullYear()} The 2nd Beer. All rights reserved.
+        </div>
       </div>
     </footer>
   );

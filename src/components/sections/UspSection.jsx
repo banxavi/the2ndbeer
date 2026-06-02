@@ -1,3 +1,5 @@
+import FadeInSection from '../ui/FadeInSection';
+
 const uspItems = [
   {
     title: 'Chọn lọc kỹ',
@@ -9,50 +11,41 @@ const uspItems = [
   },
   {
     title: 'Trải nghiệm premium',
-    desc: 'Giao diện dark mode sang trọng, CTA rõ ràng, tối ưu mobile để xem nhanh.',
+    desc: 'Giao diện tối ưu mobile, dễ xem và dễ chọn — cho khoảnh khắc thưởng thức trọn vẹn.',
   },
 ];
 
 export default function UspSection() {
   return (
-    <section className="pt-12">
+    <FadeInSection className="pt-14">
       <div className="grid gap-3 sm:grid-cols-3">
         <div className="rounded-2xl border border-white/10 bg-premium-dark p-5">
-          <div className="text-xs font-semibold tracking-normal text-premium-gold">CHÍNH HÃNG</div>
-          <div className="mt-2 text-sm text-white/80">Nguồn gốc rõ ràng</div>
+          <div className="text-xs font-semibold text-brand-amber">CHÍNH HÃNG</div>
+          <div className="mt-2 text-sm text-body-muted">Nguồn gốc rõ ràng</div>
         </div>
         <div className="rounded-2xl border border-white/10 bg-premium-dark p-5">
-          <div className="text-xs font-semibold tracking-normal text-premium-gold">TƯ VẤN</div>
-          <div className="mt-2 text-sm text-white/80">Chọn theo khẩu vị</div>
+          <div className="text-xs font-semibold text-brand-amber">TƯ VẤN</div>
+          <div className="mt-2 text-sm text-body-muted">Chọn theo khẩu vị</div>
         </div>
         <div className="rounded-2xl border border-white/10 bg-premium-dark p-5">
-          <div className="text-xs font-semibold tracking-normal text-premium-gold">NHANH</div>
-          <div className="mt-2 text-sm text-white/80">Phản hồi trong ngày</div>
+          <div className="text-xs font-semibold text-brand-amber">NHANH</div>
+          <div className="mt-2 text-sm text-body-muted">Phản hồi trong ngày</div>
         </div>
       </div>
 
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <div className="text-xs font-semibold tracking-normal text-premium-gold">GIÁ TRỊ</div>
-          <h2 className="mt-2 text-2xl font-semibold">Vì sao chọn Beer Premium</h2>
-        </div>
-        <a
-          href="#products"
-          className="hidden rounded-md border border-premium-gold/60 bg-premium-black/45 px-4 py-2 text-sm font-semibold text-premium-gold shadow-lg shadow-black/20 ring-1 ring-premium-gold/15 transition hover:-translate-y-0.5 hover:border-premium-gold/80 hover:bg-premium-black/55 hover:shadow-black/30 active:translate-y-0 sm:inline-flex"
-        >
-          Xem sản phẩm
-        </a>
+      <div className="mt-10">
+        <div className="text-xs font-semibold tracking-normal text-brand-amber">GIÁ TRỊ</div>
+        <h2 className="mt-2 text-2xl font-semibold text-white">Vì sao chọn The 2nd Beer</h2>
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         {uspItems.map((item) => (
           <div key={item.title} className="rounded-2xl border border-white/10 bg-premium-dark p-5">
-            <div className="text-sm font-semibold text-premium-gold">{item.title}</div>
-            <p className="mt-2 text-sm leading-relaxed text-white/70">{item.desc}</p>
+            <div className="text-sm font-semibold text-brand-amber">{item.title}</div>
+            <p className="mt-2 text-sm leading-relaxed text-body-muted">{item.desc}</p>
           </div>
         ))}
       </div>
-    </section>
+    </FadeInSection>
   );
 }
-

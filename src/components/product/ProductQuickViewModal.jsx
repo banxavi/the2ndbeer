@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { formatPrice } from '../../lib/formatters';
 import { buildTelHref, buildZaloHref } from '../../lib/links';
 
-const HOTLINE = '0931833666';
+const HOTLINE = '0907566279';
 
 export default function ProductQuickViewModal({ open, product, onClose }) {
   useEffect(() => {
