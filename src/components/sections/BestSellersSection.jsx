@@ -1,13 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { mockProducts } from '../../mockData';
-import ProductGrid from '../product/ProductGrid';
-import ProductQuickViewModal from '../product/ProductQuickViewModal';
-import PrimaryCta from '../ui/PrimaryCta';
+import ProductFeaturedCarousel from '../product/ProductFeaturedCarousel';
 import FadeInSection from '../ui/FadeInSection';
 
 export default function BestSellersSection() {
-  const products = useMemo(() => (mockProducts ?? []).slice(0, 4), []);
-  const [active, setActive] = useState(null);
+  const products = useMemo(() => mockProducts ?? [], []);
 
   return (
     <FadeInSection id="products" className="pt-10 sm:pt-12">
@@ -20,11 +17,8 @@ export default function BestSellersSection() {
       </div>
 
       <div className="mt-6">
-        <ProductGrid products={products} onQuickView={(p) => setActive(p)} />
+        <ProductFeaturedCarousel products={products} />
       </div>
-
-
-      <ProductQuickViewModal open={Boolean(active)} product={active} onClose={() => setActive(null)} />
     </FadeInSection>
   );
 }

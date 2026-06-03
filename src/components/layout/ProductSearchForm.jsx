@@ -1,5 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { getSearchParam, navigate, useLocation } from '../../lib/router';
+import { getSearchParam, navigate, navigateHome, useLocation } from '../../lib/router';
+
+function SearchSubmitIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
+      <path d="M20 20L16.5 16.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export default function ProductSearchForm({ autoFocus = false, onClose }) {
   const { pathname, search } = useLocation();
@@ -19,7 +28,7 @@ export default function ProductSearchForm({ autoFocus = false, onClose }) {
     e.preventDefault();
     const q = query.trim();
     if (!q) {
-      if (pathname === '/search') navigate('/');
+      if (pathname === '/search') navigateHome();
       onClose?.();
       return;
     }
@@ -27,38 +36,38 @@ export default function ProductSearchForm({ autoFocus = false, onClose }) {
     onClose?.();
   };
 
+  const clearQuery = () => {
+    setQuery('');
+    if (pathname === '/search') navigateHome();
+  };
+
   return (
-    <form onSubmit={onSubmit} className="flex flex-row items-center gap-2">
+    <form onSubmit={onSubmit} className="search-field group w-full">
       <input
         ref={inputRef}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="h-11 min-w-0 flex-1 rounded-md border border-white/10 bg-premium-black px-3 text-sm text-white/90 outline-none placeholder:text-white/40 focus:border-brand-amber/60"
-        placeholder="Nhập tên bia, xuất xứ hoặc ABV…"
+        className="search-field-input"
+        placeholder="Tìm tên bia, xuất xứ, ABV…"
         inputMode="search"
         autoComplete="off"
         aria-label="Tìm kiếm sản phẩm"
       />
 
-      <button
-        type="submit"
-        className="inline-flex h-11 shrink-0 items-center justify-center rounded-md bg-brand-amber px-4 text-sm font-semibold text-premium-black shadow-lg shadow-black/30 ring-1 ring-brand-amber/30 hover:bg-[#e0ad2a]"
-      >
-        Tìm
-      </button>
-
       {query.trim() ? (
         <button
           type="button"
-          onClick={() => {
-            setQuery('');
-            if (pathname === '/search') navigate('/');
-          }}
-          className="inline-flex h-11 shrink-0 items-center justify-center rounded-md border border-brand-amber/60 bg-premium-black/45 px-3 text-sm font-semibold text-brand-amber ring-1 ring-brand-amber/15 transition hover:border-brand-amber/80 hover:bg-premium-black/55 sm:px-4"
+          onClick={clearQuery}
+          className="search-field-clear"
+          aria-label="Xoá từ khoá"
         >
-          Xoá
+          ×
         </button>
       ) : null}
+
+      <button type="submit" className="search-field-submit" aria-label="Tìm kiếm">
+        <SearchSubmitIcon />
+      </button>
     </form>
   );
 }

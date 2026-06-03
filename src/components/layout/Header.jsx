@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { buildTelHref, buildZaloHref } from '../../lib/links';
-import PrimaryCta from '../ui/PrimaryCta';
+import { isHomePath, navigateHome, useLocation } from '../../lib/router';
 import IconButton from '../ui/IconButton';
 import ProductSearchForm from './ProductSearchForm';
 
@@ -21,6 +21,19 @@ function SearchIcon() {
   );
 }
 
+function PhoneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M6.6 3.2c.4-.9 1.5-1.3 2.4-.9l2.1 1c.8.4 1.2 1.4.9 2.3l-.7 2.1c-.2.7 0 1.4.5 1.9l2.5 2.5c.5.5 1.2.7 1.9.5l2.1-.7c.9-.3 1.9.1 2.3.9l1 2.1c.4.9 0 2-.9 2.4l-2 .8c-1.2.5-2.5.3-3.6-.4-3.2-2.1-5.8-4.7-7.9-7.9-.7-1.1-.9-2.4-.4-3.6l.8-2Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function MenuIcon({ open }) {
   return open ? (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -34,12 +47,21 @@ function MenuIcon({ open }) {
 }
 
 export default function Header() {
+  const { pathname } = useLocation();
+  const onHome = isHomePath(pathname);
   const sectionIds = useMemo(() => navItems.map((x) => x.href.replace('#', '')).filter(Boolean), []);
   const [activeId, setActiveId] = useState(sectionIds[0] ?? 'products');
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
+  const goHomeSection = (e, hash) => {
+    e.preventDefault();
+    closePanels();
+    navigateHome(hash);
+  };
+
   useEffect(() => {
+    if (!onHome) return;
     const elements = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
     if (elements.length === 0) return;
 
@@ -55,7 +77,7 @@ export default function Header() {
 
     elements.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  }, [sectionIds]);
+  }, [sectionIds, onHome]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -68,10 +90,7 @@ export default function Header() {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') {
-        setMenuOpen(false);
-        setSearchOpen(false);
-      }
+      if (e.key === 'Escape') closePanels();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -92,12 +111,10 @@ export default function Header() {
     setMenuOpen(false);
   };
 
-  const onNavClick = () => closePanels();
-
   return (
-    <header className="relative sticky top-0 z-40 border-t-4 border-brand-amber border-b border-white/10 bg-premium-black/85 backdrop-blur">
+    <header className="relative border-b border-white/10">
       <div className="site-container flex items-center justify-between gap-3 py-3 lg:py-4">
-        <a href="#top" className="flex min-w-0 flex-col" onClick={onNavClick}>
+        <a href="/" className="flex min-w-0 flex-col" onClick={(e) => goHomeSection(e, '#top')}>
           <span className="truncate text-lg font-bold text-brand-amber">The 2nd Beer</span>
           <span className="text-xs text-body-subtle">Bia nhập khẩu cao cấp</span>
         </a>
@@ -106,11 +123,12 @@ export default function Header() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
-              aria-current={activeId === item.href.slice(1) ? 'page' : undefined}
+              href={`/${item.href}`}
+              onClick={(e) => goHomeSection(e, item.href)}
+              aria-current={onHome && activeId === item.href.slice(1) ? 'page' : undefined}
               className={[
                 'text-sm transition-colors',
-                activeId === item.href.slice(1) ? 'text-brand-amber' : 'text-body-muted hover:text-white',
+                onHome && activeId === item.href.slice(1) ? 'text-brand-amber' : 'text-body-muted hover:text-white',
               ].join(' ')}
             >
               {item.label}
@@ -118,19 +136,20 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop actions */}
-        <div className="hidden items-center gap-2 sm:gap-3 lg:flex">
+        <div className="flex shrink-0 items-center gap-2">
           <a
             href={buildTelHref(HOTLINE)}
-            className="inline-flex min-h-11 items-center rounded-md bg-[#9B1321] px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:-translate-y-0.5 hover:bg-[#82101b]"
+            aria-label={`Gọi ${HOTLINE}`}
+            className="header-contact-btn header-contact-btn--call"
           >
-            Gọi: {HOTLINE}
+            <PhoneIcon />
           </a>
           <a
             href={buildZaloHref(HOTLINE)}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#007bff] px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:-translate-y-0.5 hover:bg-[#006ae0]"
+            aria-label="Chat Zalo"
+            className="header-contact-btn header-contact-btn--zalo"
           >
             <img
               className="icon"
@@ -138,23 +157,19 @@ export default function Header() {
               alt=""
               loading="lazy"
             />
-            Zalo
           </a>
-          {/* <PrimaryCta className="!px-4 !py-2 !text-sm" /> */}
-        </div>
 
-        {/* Mobile: search + hamburger */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <IconButton label="Tìm kiếm sản phẩm" onClick={toggleSearch} expanded={searchOpen}>
-            <SearchIcon />
-          </IconButton>
-          <IconButton label={menuOpen ? 'Đóng menu' : 'Mở menu'} onClick={toggleMenu} expanded={menuOpen}>
-            <MenuIcon open={menuOpen} />
-          </IconButton>
+          <div className="flex items-center gap-2 lg:hidden">
+            <IconButton label="Tìm kiếm sản phẩm" onClick={toggleSearch} expanded={searchOpen}>
+              <SearchIcon />
+            </IconButton>
+            <IconButton label={menuOpen ? 'Đóng menu' : 'Mở menu'} onClick={toggleMenu} expanded={menuOpen}>
+              <MenuIcon open={menuOpen} />
+            </IconButton>
+          </div>
         </div>
       </div>
 
-      {/* Mobile expandable search */}
       {searchOpen ? (
         <div className="site-container border-t border-white/10 pb-3 pt-3 lg:hidden">
           <ProductSearchForm autoFocus onClose={() => setSearchOpen(false)} />
@@ -178,12 +193,12 @@ export default function Header() {
               {navItems.map((item) => (
                 <a
                   key={item.href}
-                  href={item.href}
-                  onClick={onNavClick}
-                  aria-current={activeId === item.href.slice(1) ? 'page' : undefined}
+                  href={`/${item.href}`}
+                  onClick={(e) => goHomeSection(e, item.href)}
+                  aria-current={onHome && activeId === item.href.slice(1) ? 'page' : undefined}
                   className={[
                     'flex min-h-11 items-center rounded-md px-4 text-base font-medium transition-colors',
-                    activeId === item.href.slice(1)
+                    onHome && activeId === item.href.slice(1)
                       ? 'bg-brand-amber/15 text-brand-amber'
                       : 'text-body-muted hover:bg-white/5 hover:text-white',
                   ].join(' ')}
@@ -191,32 +206,6 @@ export default function Header() {
                   {item.label}
                 </a>
               ))}
-
-              <div className="mt-4 grid gap-2 border-t border-white/10 pt-4">
-                <a
-                  href={buildZaloHref(HOTLINE)}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={onNavClick}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#007bff] px-4 text-sm font-semibold text-white"
-                >
-                  <img
-                    className="icon"
-                    src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
-                    alt=""
-                    loading="lazy"
-                  />
-                  Zalo
-                </a>
-                <a
-                  href={buildTelHref(HOTLINE)}
-                  onClick={onNavClick}
-                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#9B1321] px-4 text-sm font-semibold text-white"
-                >
-                  Gọi ngay
-                </a>
-                <PrimaryCta className="w-full justify-center" onClick={onNavClick} />
-              </div>
             </div>
           </nav>
         </>

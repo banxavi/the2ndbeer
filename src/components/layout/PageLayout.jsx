@@ -19,8 +19,10 @@ export default function PageLayout({ children }) {
       </div>
 
       <div className="relative z-10 overflow-x-clip">
-        <Header />
-        <ProductSearchBar />
+        <div className="site-header-sticky sticky top-0 z-40 border-b border-white/10 bg-premium-black/90 shadow-lg shadow-black/25 backdrop-blur-md">
+          <Header />
+          <ProductSearchBar />
+        </div>
         <main className="w-full max-w-full pb-16">{children}</main>
         <Footer />
       </div>

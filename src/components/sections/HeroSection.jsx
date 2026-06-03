@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import PrimaryCta from '../ui/PrimaryCta';
+import { navigateHome } from '../../lib/router';
 import HeroBeerVisual from './HeroBeerVisual';
 
 const BUBBLES = Array.from({ length: 14 }, (_, i) => ({
@@ -131,7 +132,11 @@ export default function HeroSection() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <PrimaryCta label="Khám phá ngay" />
             <a
-              href="#products"
+              href="/#products"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateHome('#products');
+              }}
               className="hero-secondary-btn inline-flex min-h-11 items-center rounded border px-5 py-3 text-sm transition-colors"
             >
               Xem bộ sưu tập

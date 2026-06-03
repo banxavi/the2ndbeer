@@ -1,0 +1,223 @@
+/** Chi tiết bổ sung theo id — gộp với mockProducts khi hiển thị trang sản phẩm */
+export const productDetailExtras = {
+  1: {
+    brewery: 'Abbaye de Leffe',
+    volume: '330ml',
+    ibu: '20',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Leffe Brown là biểu tượng của dòng Brown Ale Bỉ: màu hổ phách đậm, bọt kem dày và hương malt nướng quyến rũ. Đây là lựa chọn lý tưởng cho buổi tối thong dong — đặc biệt khi bạn đã qua “lon đầu” và muốn thưởng thức trọn vẹn “lon thứ hai”.',
+    tastingNotes: ['Caramel nhẹ', 'Malt nướng', 'Hậu vị ngọt ấm', 'Bọt mịn'],
+    foodPairing: ['Thịt nướng', 'Gà quay', 'Phô mai cứng', 'Sô-cô-la đen'],
+    highlights: ['Nhập khẩu chính hãng', 'Phù hợp mùa mát', 'Dễ uống với đồ nướng'],
+  },
+  2: {
+    brewery: 'Kulmbacher Brauerei',
+    volume: '500ml',
+    ibu: '26',
+    serveTemp: '8–10°C',
+    longDescription:
+      'Eku 11% là bock beer Đức đậm đặc với thân bia đầy đặn và độ cồn cao nhưng vẫn cân bằng. Hương vị ngọt malt và trái cây khô nổi bật — một trải nghiệm “chậm mà sâu” cho người thích bia có chiều sâu.',
+    tastingNotes: ['Sô-cô-la đen', 'Trái cây khô', 'Malt ngọt', 'Hậu vị dài'],
+    foodPairing: ['Thịt hun khói', 'Xúc xích Đức', 'Beef stew', 'Bánh mì đen'],
+    highlights: ['Độ cồn cao', 'Hậu vị phức tạp', 'Lon lớn 500ml'],
+  },
+  3: {
+    brewery: 'Sierra Nevada Brewing',
+    volume: '355ml',
+    ibu: '38',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Sierra Nevada Pale Ale là huyền thoại craft Mỹ: đắng hoa bia rõ ràng nhưng không gắt, hương cam chanh và thông tươi. Lon thứ hai thường là lúc bạn cảm nhận rõ độ cân bằng giữa đắng và ngọt malt.',
+    tastingNotes: ['Hoa bia (hop)', 'Cam chanh', 'Thông', 'Đắng cân bằng'],
+    foodPairing: ['Burger', 'Tacos', 'Pizza cay', 'Gà rán'],
+    highlights: ['Craft kinh điển', 'Hương hop tươi', 'Dễ gây nghiện cho fan IPA nhẹ'],
+  },
+  4: {
+    brewery: 'Paulaner Brauerei',
+    volume: '500ml',
+    ibu: '15',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Paulaner Hefe-Weizen mang đến trải nghiệm wheat beer Đức đúng chuẩn: đục tự nhiên, thơm chuối và đinh hương (clove), sủi tươi mát. Rất hợp buổi chiều và những cuộc trò chuyện không vội.',
+    tastingNotes: ['Chuối', 'Đinh hương', 'Bột mì', 'Sủi tươi'],
+    foodPairing: ['Pretzel', 'Salad nhẹ', 'Hải sản', 'Phô mai tươi'],
+    highlights: ['Dễ uống', 'Thơm đặc trưng', 'Lon 500ml tiện chia sẻ'],
+  },
+  5: {
+    brewery: 'Duvel Moortgat',
+    volume: '330ml',
+    ibu: '32',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Duvel là strong golden ale Bỉ nổi tiếng với bọt dày như champagne và hậu vị khô, cay nhẹ tinh tế. Một chai đủ để kéo dài cuộc trò chuyện — đúng tinh thần The 2nd Beer.',
+    tastingNotes: ['Bọt champagne', 'Cam zest', 'Hồi', 'Khô, sạch'],
+    foodPairing: ['Ốc', 'Tôm hùm', 'Gà nướng', 'Phô mai brie'],
+    highlights: ['Biểu tượng Bỉ', 'Sủi đẹp', 'Thưởng thức chậm'],
+  },
+  6: {
+    brewery: 'Guinness',
+    volume: '330ml',
+    ibu: '45',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Guinness Draught nổi bật với lớp kem nitro mịn, vị đen cà phê và sô-cô-la thanh mát. Dù là stout nhưng body nhẹ, rất dễ uống — đặc biệt khi thưởng thức lạnh sau ngày dài.',
+    tastingNotes: ['Cà phê rang', 'Sô-cô-la', 'Kem nitro', 'Khô nhẹ'],
+    foodPairing: ['Hàu', 'Thịt bò', 'Pie', 'Chocolate dessert'],
+    highlights: ['Kem nitro đặc trưng', 'Icon Ireland', 'Dễ uống'],
+  },
+  7: {
+    brewery: 'Grupo Modelo',
+    volume: '355ml',
+    ibu: '18',
+    serveTemp: '2–4°C',
+    longDescription:
+      'Corona Extra mang phong cách bia biển Mexico: trong, nhẹ, cực kỳ dễ uống khi lạnh và có thể thêm chanh. Lon thứ hai thường là lúc bạn thả lỏng hoàn toàn.',
+    tastingNotes: ['Nhẹ', 'Ngọt malt nhẹ', 'Trong', 'Kết thúc sạch'],
+    foodPairing: ['Tacos', 'Ceviche', 'Đồ nướng', 'Salad'],
+    highlights: ['Uống lạnh', 'Hợp chanh', 'Phong cách biển'],
+  },
+  8: {
+    brewery: 'Hoegaarden',
+    volume: '330ml',
+    ibu: '12',
+    serveTemp: '4–6°C',
+    longDescription:
+      'Hoegaarden White là witbier Bỉ với hương cam và hạt tiêu, đục tự nhiên từ gia vị và wheat. Thanh mát, dễ tiếp cận — lựa chọn an toàn cho nhóm đông.',
+    tastingNotes: ['Cam', 'Tiêu', 'Coriander', 'Mát'],
+    foodPairing: ['Salad', 'Cá trắng', 'Mì Ý nhẹ', 'Phô mai dê'],
+    highlights: ['Witbier kinh điển', 'Thơm gia vị', 'Dễ uống'],
+  },
+  9: {
+    brewery: 'Asahi Breweries',
+    volume: '330ml',
+    ibu: '16',
+    serveTemp: '4–6°C',
+    longDescription:
+      'Asahi Super Dry được mệnh danh “khô nhất” trong các lager Nhật: kết thúc gọn, ít ngọt dư, cực kỳ sạch. Hợp sushi, sashimi và những bữa ăn tinh tế.',
+    tastingNotes: ['Khô', 'Gạo nhẹ', 'Sạch', 'Sủi đều'],
+    foodPairing: ['Sushi', 'Sashimi', 'Tempura', 'Đồ chiên nhẹ'],
+    highlights: ['Super Dry', 'Hợp Nhật cuisine', 'Dễ uống'],
+  },
+  10: {
+    brewery: 'Abbaye de Scourmont (Chimay)',
+    volume: '330ml',
+    ibu: '30',
+    serveTemp: '10–12°C',
+    longDescription:
+      'Chimay Blue là trappist ale cao cấp: đậm trái cây sấy, gia vị ấm và độ cồn cao nhưng hài hòa. Nên thưởng thức chậm, hơi ấm — lon thứ hai đáng giá từng ngụm.',
+    tastingNotes: ['Mận khô', 'Nho khô', 'Gia vị', 'Ấm, sâu'],
+    foodPairing: ['Thịt hầm', 'Phô mai mạnh', 'Paté', 'Tráng miệng đậm'],
+    highlights: ['Trappist', 'Cao cấp', 'Thưởng thức chậm'],
+  },
+  11: {
+    brewery: 'BrewDog',
+    volume: '330ml',
+    ibu: '35',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Punk IPA là biểu tượng craft táo bạo từ Scotland: đắng hop rõ, hương bưởi và thông nổi. Dành cho ai muốn bia có cá tính và không ngại độ đắng.',
+    tastingNotes: ['Bưởi', 'Thông', 'Đắng hop', 'Khô'],
+    foodPairing: ['Burger cay', 'Wings', 'Curry', 'BBQ'],
+    highlights: ['IPA hiện đại', 'Hương hop mạnh', 'Craft nổi tiếng'],
+  },
+  12: {
+    brewery: 'Stella Artois',
+    volume: '330ml',
+    ibu: '24',
+    serveTemp: '4–6°C',
+    longDescription:
+      'Stella Artois là pilsner Bỉ cổ điển: vàng trong, đắng hoa nhẹ, sủi đều — “an toàn” cho mọi dịp nhưng vẫn đủ chất để thưởng thức lon thứ hai một cách thong dong.',
+    tastingNotes: ['Hoa nhẹ', 'Malt ngọt', 'Trong', 'Khô'],
+    foodPairing: ['Mì Ý', 'Gà', 'Khoai tây chiên', 'Salad'],
+    highlights: ['Pilsner kinh điển', 'Dễ uống', 'Hợp tiệc'],
+  },
+  13: {
+    brewery: 'Lagunitas Brewing',
+    volume: '355ml',
+    ibu: '49',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Lagunitas IPA từ California: đắng rõ, hương thông và cam đào, body vừa. Một trong những IPA Mỹ dễ tiếp cận nhưng vẫn đậm chất craft.',
+    tastingNotes: ['Thông', 'Cam đào', 'Đắng vừa', 'Hậu vị hop'],
+    foodPairing: ['BBQ', 'Pizza', 'Taco', 'Phô mai cay'],
+    highlights: ['IPA Mỹ', 'Hương trái cây', 'Craft phổ biến'],
+  },
+  14: {
+    brewery: 'Weihenstephan',
+    volume: '500ml',
+    ibu: '14',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Weihenstephaner Hefe đến từ nhà máy bia lâu đời nhất thế giới (Đức): hefeweizen đúng chuẩn, chuối và đinh hương nồng, sủi dày. Trải nghiệm wheat beer “chuẩn gốc”.',
+    tastingNotes: ['Chuối', 'Đinh hương', 'Bột mì', 'Sủi dày'],
+    foodPairing: ['Pretzel', 'Weisswurst', 'Salad', 'Phô mai nhẹ'],
+    highlights: ['Nhà máy lâu đời', 'Hefeweizen chuẩn', '500ml'],
+  },
+  15: {
+    brewery: 'Huyghe Brewery',
+    volume: '330ml',
+    ibu: '26',
+    serveTemp: '8–10°C',
+    longDescription:
+      'Delirium Tremens với biểu tượng voi hồng: strong ale Bỉ ngọt nhẹ, hoa quả và gia vị, bọt vàng đẹp. Một chai kể chuyện — lon thứ hai là lúc bạn để ý từng lớp hương.',
+    tastingNotes: ['Hoa quả', 'Gia vị', 'Ngọt nhẹ', 'Bọt vàng'],
+    foodPairing: ['Phô mai', 'Moules', 'Gà nướng', 'Tráng miệng'],
+    highlights: ['Voi hồng', 'Strong ale Bỉ', 'Độc đáo'],
+  },
+  16: {
+    brewery: 'Asia Pacific Breweries',
+    volume: '330ml',
+    ibu: '15',
+    serveTemp: '2–4°C',
+    longDescription:
+      'Tiger Crystal là lager trong, nhẹ, dễ uống — rất hợp khí hậu nhiệt đới và đồ nướng. Lon thứ hai thường đến cùng tiếng cười và món ăn cay.',
+    tastingNotes: ['Trong', 'Nhẹ', 'Ngọt nhẹ', 'Kết thúc gọn'],
+    foodPairing: ['Đồ nướng', 'Hải sản', 'Lẩu', 'Gỏi'],
+    highlights: ['Giá tốt', 'Dễ uống', 'Hợp nhiệt đới'],
+  },
+  17: {
+    brewery: 'Kirin Brewery',
+    volume: '350ml',
+    ibu: '17',
+    serveTemp: '4–6°C',
+    longDescription:
+      'Kirin Ichiban chỉ dùng mẻ lúa mạch đầu tiên (first press) nên vị tinh khiết, thanh, ít đắng dư. Tinh tế kiểu Nhật — phù hợp bữa ăn nhẹ và hội thoại chậm rãi.',
+    tastingNotes: ['Gạo nhẹ', 'Tinh khiết', 'Khô', 'Thanh'],
+    foodPairing: ['Sushi', 'Yakitori', 'Tempura', 'Đậu phụ'],
+    highlights: ['First press', 'Thanh lịch', 'Dễ uống'],
+  },
+  18: {
+    brewery: 'Budějovický Budvar',
+    volume: '330ml',
+    ibu: '22',
+    serveTemp: '4–6°C',
+    longDescription:
+      'Budweiser Budvar (Budvar) là pilsner Séc danh tiếng từ Ceske Budejovice: đắng hoa cân bằng, malt tròn, sủi đẹp. “Budvar” thật — khác hoàn toàn các bản Mỹ cùng tên.',
+    tastingNotes: ['Hoa nhẹ', 'Malt tròn', 'Đắng cân bằng', 'Trong'],
+    foodPairing: ['Gà', 'Heo quay', 'Pretzel', 'Pickles'],
+    highlights: ['Pilsner Séc', 'Chính hãng', 'Cân bằng'],
+  },
+  19: {
+    brewery: "Murphy's",
+    volume: '500ml',
+    ibu: '30',
+    serveTemp: '6–8°C',
+    longDescription:
+      'Murphy\'s Irish Stout mềm hơn Guinness: sô-cô-la, cà phê, kem mịn nhưng body nhẹ hơn. Dễ uống cho người mới thử stout.',
+    tastingNotes: ['Sô-cô-la', 'Cà phê', 'Kem mịn', 'Nhẹ hơn Guinness'],
+    foodPairing: ['Pie', 'Beef', 'Oyster', 'Chocolate'],
+    highlights: ['Stout Ireland', 'Dễ tiếp cận', '500ml'],
+  },
+  20: {
+    brewery: 'Brouwerij de Koningshoeven (La Trappe)',
+    volume: '330ml',
+    ibu: '22',
+    serveTemp: '8–10°C',
+    longDescription:
+      'La Trappe Dubbel là dubbel trappist Hà Lan: caramel, khô quả, hậu vị ấm và bọt beige. Một dòng bia “ấm lòng” cho buổi tối có chiều sâu.',
+    tastingNotes: ['Caramel', 'Khô quả', 'Gia vị nhẹ', 'Ấm'],
+    foodPairing: ['Thịt hầm', 'Phô mai', 'Bánh mì nướng', 'Moules'],
+    highlights: ['Trappist', 'Dubbel', 'Hậu vị ấm'],
+  },
+};
