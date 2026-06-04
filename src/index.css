@@ -52,6 +52,102 @@ body {
   color: rgba(240, 240, 240, 0.72);
 }
 
+/* Logo / wordmark — gold gradient (khách: vàng gold trên nền đen) */
+.brand-logo-gradient {
+  background-image: linear-gradient(
+    125deg,
+    #f8ecc8 0%,
+    #e8c547 22%,
+    #d4a017 48%,
+    #b8860b 72%,
+    #8b6914 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Product image well — card & detail: mọi tỉ lệ ảnh vừa khung, nền đồng bộ */
+.product-media-well {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #242424;
+  background-image:
+    radial-gradient(ellipse 88% 72% at 50% 92%, rgba(212, 160, 23, 0.11) 0%, transparent 58%),
+    linear-gradient(168deg, #2c2924 0%, #262626 45%, #1e1e1e 100%);
+}
+
+.product-media-well__img {
+  display: block;
+  flex: 0 1 auto;
+  max-width: 86%;
+  max-height: 92%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+  transition: transform 0.5s ease;
+}
+
+.group:hover .product-media-well__img {
+  transform: scale(1.03);
+}
+
+.product-card-media {
+  aspect-ratio: 4 / 5;
+  min-height: 13.75rem;
+  padding: 0.75rem 0.625rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.product-card-media--compact {
+  aspect-ratio: 3 / 4;
+  min-height: 10.5rem;
+  padding: 0.625rem 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .product-card-media--compact {
+    min-height: 11.75rem;
+    padding: 0.75rem 0.625rem;
+  }
+
+  .product-card-media:not(.product-card-media--compact) {
+    min-height: 16.25rem;
+    padding: 1rem 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-card-media--compact {
+    min-height: 13.75rem;
+  }
+}
+
+.product-detail-media {
+  aspect-ratio: 4 / 5;
+  min-height: 18rem;
+  padding: 1.25rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .product-detail-media {
+    aspect-ratio: 1;
+    min-height: 22rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .product-detail-media .product-media-well__img {
+    max-width: 82%;
+    max-height: 88%;
+  }
+}
+
 .icon {
   width: 18px;
   height: 18px;
@@ -249,12 +345,12 @@ body {
   color: #d4a017;
 }
 
-.hero-section .hero-title {
-  color: #ffffff;
+.hero-section .hero-title.brand-logo-gradient {
+  color: transparent;
 }
 
 .hero-section .hero-title-accent {
-  color: #d4a017;
+  font-style: normal;
 }
 
 .hero-section .hero-tagline {

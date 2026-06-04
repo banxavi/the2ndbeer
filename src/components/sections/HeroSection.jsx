@@ -112,7 +112,7 @@ export default function HeroSection() {
           </div>
 
           {/* Headline — Playfair Display */}
-          <h1 className="hero-title font-serif text-[52px] font-black leading-[1.0] sm:text-[68px] md:text-[80px]">
+          <h1 className="hero-title brand-logo-gradient font-serif text-[52px] font-black leading-[1.0] sm:text-[68px] md:text-[80px]">
             The<br />
             <em className="hero-title-accent not-italic">2nd</em>
             <br />

@@ -115,7 +115,7 @@ export default function Header() {
     <header className="relative border-b border-white/10">
       <div className="site-container flex items-center justify-between gap-3 py-3 lg:py-4">
         <a href="/" className="flex min-w-0 flex-col" onClick={(e) => goHomeSection(e, '#top')}>
-          <span className="truncate text-lg font-bold text-brand-amber">The 2nd Beer</span>
+          <span className="brand-logo-gradient truncate text-lg font-bold">The 2nd Beer</span>
           <span className="text-xs text-body-subtle">Bia nhập khẩu cao cấp</span>
         </a>
 

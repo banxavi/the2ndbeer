@@ -21,14 +21,12 @@ export default function ProductCard({ product, compact = false }) {
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-amber',
       ].join(' ')}
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={product.image}
-          alt=""
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-premium-black/80 via-premium-black/10 to-transparent" />
+      <div
+        className={['product-media-well product-card-media', compact ? 'product-card-media--compact' : '']
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <img src={product.image} alt={product.name} loading="lazy" className="product-media-well__img" />
         {product.style ? (
           <span className="absolute left-2 top-2 rounded-full bg-premium-black/75 px-2.5 py-1 text-[10px] font-semibold text-brand-amber ring-1 ring-brand-amber/30 sm:left-3 sm:top-3 sm:px-3 sm:text-xs">
             {product.style}

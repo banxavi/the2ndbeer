@@ -3,7 +3,7 @@ export const mockProducts = [
     id: 1,
     name: 'Leffe Brown',
     image:
-      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=max',
     price: '95.000 đ',
     origin: 'Bỉ',
     style: 'Brown Ale',
@@ -14,7 +14,7 @@ export const mockProducts = [
     id: 2,
     name: 'Eku Bavarian 11%',
     image:
-      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=max',
     price: '135.000 đ',
     origin: 'Đức',
     style: 'Bock',
@@ -25,7 +25,7 @@ export const mockProducts = [
     id: 3,
     name: 'Sierra Nevada Pale Ale',
     image:
-      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=max',
     price: '120.000 đ',
     origin: 'Mỹ',
     style: 'Pale Ale',
@@ -47,7 +47,7 @@ export const mockProducts = [
     id: 5,
     name: 'Duvel Belgian Strong',
     image:
-      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=max',
     price: '145.000 đ',
     origin: 'Bỉ',
     style: 'Belgian Strong Ale',
@@ -58,7 +58,7 @@ export const mockProducts = [
     id: 6,
     name: 'Guinness Draught',
     image:
-      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=max',
     price: '78.000 đ',
     origin: 'Ireland',
     style: 'Stout',
@@ -69,7 +69,7 @@ export const mockProducts = [
     id: 7,
     name: 'Corona Extra',
     image:
-      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=max',
     price: '65.000 đ',
     origin: 'Mexico',
     style: 'Lager',
@@ -80,7 +80,7 @@ export const mockProducts = [
     id: 8,
     name: 'Hoegaarden White',
     image:
-      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=max',
     price: '72.000 đ',
     origin: 'Bỉ',
     style: 'Witbier',
@@ -91,7 +91,7 @@ export const mockProducts = [
     id: 9,
     name: 'Asahi Super Dry',
     image:
-      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=max',
     price: '58.000 đ',
     origin: 'Nhật Bản',
     style: 'Lager',
@@ -102,7 +102,7 @@ export const mockProducts = [
     id: 10,
     name: 'Chimay Blue',
     image:
-      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=max',
     price: '165.000 đ',
     origin: 'Bỉ',
     style: 'Trappist Ale',
@@ -113,7 +113,7 @@ export const mockProducts = [
     id: 11,
     name: 'BrewDog Punk IPA',
     image:
-      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=max',
     price: '110.000 đ',
     origin: 'Scotland',
     style: 'IPA',
@@ -124,7 +124,7 @@ export const mockProducts = [
     id: 12,
     name: 'Stella Artois',
     image:
-      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=max',
     price: '68.000 đ',
     origin: 'Bỉ',
     style: 'Pilsner',
@@ -135,7 +135,7 @@ export const mockProducts = [
     id: 13,
     name: 'Lagunitas IPA',
     image:
-      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=max',
     price: '125.000 đ',
     origin: 'Mỹ',
     style: 'IPA',
@@ -157,7 +157,7 @@ export const mockProducts = [
     id: 15,
     name: 'Delirium Tremens',
     image:
-      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=max',
     price: '155.000 đ',
     origin: 'Bỉ',
     style: 'Belgian Strong Ale',
@@ -168,7 +168,7 @@ export const mockProducts = [
     id: 16,
     name: 'Tiger Crystal',
     image:
-      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=max',
     price: '42.000 đ',
     origin: 'Singapore',
     style: 'Lager',
@@ -179,7 +179,7 @@ export const mockProducts = [
     id: 17,
     name: 'Kirin Ichiban',
     image:
-      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=max',
     price: '75.000 đ',
     origin: 'Nhật Bản',
     style: 'Lager',
@@ -190,7 +190,7 @@ export const mockProducts = [
     id: 18,
     name: 'Budweiser Budvar',
     image:
-      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=max',
     price: '88.000 đ',
     origin: 'Séc',
     style: 'Lager',
@@ -201,7 +201,7 @@ export const mockProducts = [
     id: 19,
     name: 'Murphy\'s Irish Stout',
     image:
-      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=max',
     price: '82.000 đ',
     origin: 'Ireland',
     style: 'Stout',
@@ -212,7 +212,7 @@ export const mockProducts = [
     id: 20,
     name: 'La Trappe Dubbel',
     image:
-      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=500&auto=format&fit=max',
     price: '148.000 đ',
     origin: 'Hà Lan',
     style: 'Dubbel',
@@ -220,3 +220,12 @@ export const mockProducts = [
     description: 'Caramel, khô quả, hậu vị ấm — trappist đậm chất tu viện.',
   },
 ];
+
+function parsePriceNumber(price) {
+  return Number.parseInt(String(price).replace(/\D/g, ''), 10) || 0;
+}
+
+/** Giá tốt — dùng cho carousel 1 hàng × 5 (có thể xoay trang) */
+export const mockValueProducts = [...mockProducts]
+  .sort((a, b) => parsePriceNumber(a.price) - parsePriceNumber(b.price))
+  .slice(0, 10);

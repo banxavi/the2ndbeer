@@ -1,13 +1,22 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ProductCard from './ProductCard';
 
-const DESKTOP_PER_PAGE = 10;
-const TABLET_PER_PAGE = 6;
-const MOBILE_PER_PAGE = 4;
 const AUTO_PLAY_MS = 10_000;
 
-const gridClass =
-  'grid grid-cols-2 grid-rows-2 gap-3 sm:grid-cols-3 sm:grid-rows-2 sm:gap-4 lg:grid-cols-5 lg:grid-rows-2 lg:gap-5';
+const PRESETS = {
+  featured: {
+    perPage: { lg: 10, sm: 6, default: 4 },
+    gridClass:
+      'grid grid-cols-2 grid-rows-2 gap-3 sm:grid-cols-3 sm:grid-rows-2 sm:gap-4 lg:grid-cols-5 lg:grid-rows-2 lg:gap-5',
+    ariaLabel: 'Sản phẩm nổi bật',
+  },
+  row: {
+    perPage: { lg: 5, sm: 3, default: 2 },
+    gridClass:
+      'grid grid-cols-2 grid-rows-1 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:grid-rows-1 lg:gap-5',
+    ariaLabel: 'Vang ngon giá tốt',
+  },
+};
 
 function chunk(array, size) {
   const pages = [];
@@ -17,17 +26,17 @@ function chunk(array, size) {
   return pages.length ? pages : [[]];
 }
 
-function usePerPage() {
-  const [perPage, setPerPage] = useState(DESKTOP_PER_PAGE);
+function usePerPage(perPageConfig) {
+  const [perPage, setPerPage] = useState(perPageConfig.default);
 
   useEffect(() => {
     const mqLg = window.matchMedia('(min-width: 1024px)');
     const mqSm = window.matchMedia('(min-width: 640px)');
 
     const update = () => {
-      if (mqLg.matches) setPerPage(DESKTOP_PER_PAGE);
-      else if (mqSm.matches) setPerPage(TABLET_PER_PAGE);
-      else setPerPage(MOBILE_PER_PAGE);
+      if (mqLg.matches) setPerPage(perPageConfig.lg);
+      else if (mqSm.matches) setPerPage(perPageConfig.sm);
+      else setPerPage(perPageConfig.default);
     };
 
     update();
@@ -37,7 +46,7 @@ function usePerPage() {
       mqLg.removeEventListener('change', update);
       mqSm.removeEventListener('change', update);
     };
-  }, []);
+  }, [perPageConfig.default, perPageConfig.lg, perPageConfig.sm]);
 
   return perPage;
 }
@@ -71,14 +80,17 @@ function NavButton({ direction, onClick, disabled, className = '' }) {
   );
 }
 
-export default function ProductFeaturedCarousel({ products }) {
-  const perPage = usePerPage();
+export default function ProductFeaturedCarousel({ products, variant = 'featured' }) {
+  const preset = PRESETS[variant] ?? PRESETS.featured;
+  const perPage = usePerPage(preset.perPage);
   const pages = useMemo(() => chunk(products, perPage), [products, perPage]);
   const [pageIndex, setPageIndex] = useState(0);
   const [slideInstant, setSlideInstant] = useState(false);
 
   const pagesLengthRef = useRef(pages.length);
   const intervalRef = useRef(null);
+  const cardsPausedRef = useRef(false);
+  const cardsRegionRef = useRef(null);
 
   const safeIndex = Math.min(pageIndex, Math.max(0, pages.length - 1));
 
@@ -93,13 +105,32 @@ export default function ProductFeaturedCarousel({ products }) {
 
   const startAutoplay = useCallback(() => {
     clearAutoplay();
-    if (pagesLengthRef.current <= 1) return;
+    if (pagesLengthRef.current <= 1 || cardsPausedRef.current) return;
 
     intervalRef.current = window.setInterval(() => {
-      if (document.hidden) return;
+      if (document.hidden || cardsPausedRef.current) return;
       setPageIndex((i) => (i + 1) % pagesLengthRef.current);
     }, AUTO_PLAY_MS);
   }, [clearAutoplay]);
+
+  const pauseForCards = useCallback(() => {
+    cardsPausedRef.current = true;
+    clearAutoplay();
+  }, [clearAutoplay]);
+
+  const resumeAfterCards = useCallback(() => {
+    cardsPausedRef.current = false;
+    if (!document.hidden) startAutoplay();
+  }, [startAutoplay]);
+
+  const onCardsFocusOut = useCallback(
+    (e) => {
+      const region = cardsRegionRef.current;
+      if (region?.contains(e.relatedTarget)) return;
+      resumeAfterCards();
+    },
+    [resumeAfterCards],
+  );
 
   useEffect(() => {
     setSlideInstant(true);
@@ -121,7 +152,7 @@ export default function ProductFeaturedCarousel({ products }) {
 
     const onVisibility = () => {
       if (document.hidden) clearAutoplay();
-      else startAutoplay();
+      else if (!cardsPausedRef.current) startAutoplay();
     };
     document.addEventListener('visibilitychange', onVisibility);
 
@@ -169,11 +200,16 @@ export default function ProductFeaturedCarousel({ products }) {
         <NavButton direction="next" onClick={goNext} disabled={!canNext} className="right-0 sm:right-1" />
 
         <div
+          ref={cardsRegionRef}
           className="carousel-viewport"
           role="region"
           aria-roledescription="carousel"
-          aria-label={`Sản phẩm nổi bật, trang ${safeIndex + 1}`}
+          aria-label={`${preset.ariaLabel}, trang ${safeIndex + 1}`}
           aria-live="polite"
+          onMouseEnter={pauseForCards}
+          onMouseLeave={resumeAfterCards}
+          onFocusCapture={pauseForCards}
+          onBlurCapture={onCardsFocusOut}
         >
           <div
             className={['carousel-track', slideInstant ? 'carousel-track--instant' : ''].filter(Boolean).join(' ')}
@@ -181,7 +217,7 @@ export default function ProductFeaturedCarousel({ products }) {
           >
             {pages.map((pageProducts, pageIdx) => (
               <div key={`${perPage}-page-${pageIdx}`} className="carousel-slide" aria-hidden={pageIdx !== safeIndex}>
-                <div className={gridClass}>
+                <div className={preset.gridClass}>
                   {pageProducts.map((p) => (
                     <ProductCard key={p.id} product={p} compact />
                   ))}

@@ -54,11 +54,10 @@ export default function ProductDetailPage({ productSlug }) {
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-premium-dark">
-            <div className="relative aspect-[4/3] lg:aspect-square">
-              <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-premium-black/60 via-transparent to-transparent" />
+            <div className="product-media-well product-detail-media">
+              <img src={product.image} alt={product.name} className="product-media-well__img" />
               {product.style ? (
-                <span className="absolute left-4 top-4 rounded-full bg-premium-black/80 px-3 py-1 text-xs font-semibold text-brand-amber ring-1 ring-brand-amber/30">
+                <span className="absolute left-4 top-4 z-10 rounded-full bg-premium-black/80 px-3 py-1 text-xs font-semibold text-brand-amber ring-1 ring-brand-amber/30">
                   {product.style}
                 </span>
               ) : null}
