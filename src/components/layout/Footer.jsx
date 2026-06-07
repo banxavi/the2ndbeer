@@ -1,9 +1,19 @@
-import PrimaryCta from '../ui/PrimaryCta';
-
 const socialLinks = [
-  { label: 'Instagram', href: 'https://instagram.com', icon: 'IG' },
-  { label: 'Facebook', href: 'https://facebook.com', icon: 'FB' },
-  { label: 'TikTok', href: 'https://tiktok.com', icon: 'TT' },
+  {
+    label: 'Instagram',
+    href: 'https://instagram.com',
+    iconSrc: 'https://cdn.simpleicons.org/instagram/E4405F',
+  },
+  {
+    label: 'Facebook',
+    href: 'https://facebook.com',
+    iconSrc: 'https://cdn.simpleicons.org/facebook/1877F2',
+  },
+  {
+    label: 'TikTok',
+    href: 'https://tiktok.com',
+    iconSrc: 'https://cdn.simpleicons.org/tiktok/FFFFFF',
+  },
 ];
 
 export default function Footer() {
@@ -15,22 +25,28 @@ export default function Footer() {
             <div className="brand-logo-gradient text-xl font-bold">The 2nd Beer</div>
             <p className="mt-2 text-sm italic text-body-muted">One is never enough.</p>
             <p className="mt-1 text-sm text-body-subtle">Lon thứ hai mới là lon đáng nhớ.</p>
-    
           </div>
 
           <div>
             <div className="text-sm font-semibold text-white">Theo dõi chúng tôi</div>
             <div className="mt-4 flex gap-3">
-              {socialLinks.map((s) => (
+              {socialLinks.map(({ label, href, iconSrc }) => (
                 <a
-                  key={s.label}
-                  href={s.href}
+                  key={label}
+                  href={href}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={s.label}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-premium-dark text-xs font-bold text-brand-amber transition hover:border-brand-amber/60 hover:bg-premium-black"
+                  aria-label={label}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-premium-dark transition hover:border-brand-amber/60 hover:bg-premium-black"
                 >
-                  {s.icon}
+                  <img
+                    src={iconSrc}
+                    alt=""
+                    width={20}
+                    height={20}
+                    loading="lazy"
+                    className="h-5 w-5 object-contain"
+                  />
                 </a>
               ))}
             </div>
