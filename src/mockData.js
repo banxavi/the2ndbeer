@@ -107,7 +107,7 @@ export const mockProducts = [
     origin: 'Bỉ',
     style: 'Trappist Ale',
     abv: '9.0%',
-    description: 'Đậm trái cây sấy, gia vị ấm — lon thứ hai đáng để thưởng thức chậm.',
+    description: 'Đậm trái cây sấy, gia vị ấm — đáng để thưởng thức chậm từng ngụm.',
   },
   {
     id: 11,

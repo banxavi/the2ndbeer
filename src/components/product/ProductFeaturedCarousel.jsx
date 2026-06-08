@@ -8,7 +8,7 @@ const PRESETS = {
     perPage: { lg: 10, sm: 6, default: 4 },
     gridClass:
       'grid grid-cols-2 grid-rows-2 gap-3 sm:grid-cols-3 sm:grid-rows-2 sm:gap-4 lg:grid-cols-5 lg:grid-rows-2 lg:gap-5',
-    ariaLabel: 'Sản phẩm nổi bật',
+    ariaLabel: 'Bộ sưu tập signature',
   },
   row: {
     perPage: { lg: 5, sm: 3, default: 2 },

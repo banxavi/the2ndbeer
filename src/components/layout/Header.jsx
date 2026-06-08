@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
+import { BRAND } from '../../data/brand';
 import { buildTelHref, buildZaloHref } from '../../lib/links';
 import { isHomePath, navigateHome, useLocation } from '../../lib/router';
 import IconButton from '../ui/IconButton';
+import BrandMark from './BrandMark';
 import ProductSearchForm from './ProductSearchForm';
 
-const HOTLINE = '0907566279';
+const HOTLINE = BRAND.hotline;
 const navItems = [
   { href: '#products', label: 'Sản phẩm' },
   { href: '#reviews', label: 'Đánh giá' },
@@ -114,9 +116,13 @@ export default function Header() {
   return (
     <header className="relative border-b border-white/10">
       <div className="site-container flex items-center justify-between gap-3 py-3 lg:py-4">
-        <a href="/" className="flex min-w-0 flex-col" onClick={(e) => goHomeSection(e, '#top')}>
-          <span className="brand-logo-gradient truncate text-lg font-bold">The 2nd Beer</span>
-          <span className="text-xs text-body-subtle">Bia nhập khẩu cao cấp</span>
+        <a
+          href="/"
+          className="min-w-0 max-w-[min(100%,17.5rem)] shrink sm:max-w-xs lg:max-w-sm"
+          onClick={(e) => goHomeSection(e, '#top')}
+          aria-label="LUVINI & CO. — về trang chủ"
+        >
+          <BrandMark />
         </a>
 
         <nav className="hidden items-center gap-5 lg:flex" aria-label="Điều hướng chính">

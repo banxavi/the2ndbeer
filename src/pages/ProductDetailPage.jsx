@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
+import { BRAND } from '../data/brand';
 import { formatPrice } from '../lib/formatters';
 import { buildTelHref, buildZaloHref } from '../lib/links';
 import { getProductBySlug, getRelatedProducts } from '../lib/products';
 import { navigateHome } from '../lib/router';
 import ProductCard from '../components/product/ProductCard';
 
-const HOTLINE = '0907566279';
+const HOTLINE = BRAND.hotline;
 
 export default function ProductDetailPage({ productSlug }) {
   const product = getProductBySlug(productSlug);
@@ -170,7 +171,7 @@ export default function ProductDetailPage({ productSlug }) {
         {related.length > 0 ? (
           <section className="mt-14 border-t border-white/10 pt-12">
             <h2 className="text-xl font-semibold text-white">Có thể bạn cũng thích</h2>
-            <p className="mt-2 text-sm text-body-muted">Gợi ý thêm cho lon thứ hai của bạn.</p>
+            <p className="mt-2 text-sm text-body-muted">Gợi ý thêm từ bộ sưu tập {BRAND.shortName}.</p>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((p) => (
                 <ProductCard key={p.id} product={p} compact />

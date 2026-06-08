@@ -8,7 +8,7 @@ export default function AvailableAtSection() {
         <div className="text-xs font-semibold tracking-normal text-brand-amber">CÓ MẶT TẠI</div>
         <h2 className="mt-2 text-2xl font-semibold text-white">Đối tác & điểm bán</h2>
         <p className="mt-2 max-w-2xl text-sm text-body-muted">
-          Danh sách đối tác mẫu — bạn có thể thay bằng logo thật khi triển khai.
+          Mạng lưới đối tác và điểm trải nghiệm — dữ liệu mẫu, sẽ thay logo thật khi go-live.
         </p>
       </div>
 

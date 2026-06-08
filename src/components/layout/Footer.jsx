@@ -1,3 +1,5 @@
+import BrandMark from './BrandMark';
+
 const socialLinks = [
   {
     label: 'Instagram',
@@ -22,9 +24,7 @@ export default function Footer() {
       <div className="site-container py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <div className="brand-logo-gradient text-xl font-bold">The 2nd Beer</div>
-            <p className="mt-2 text-sm italic text-body-muted">One is never enough.</p>
-            <p className="mt-1 text-sm text-body-subtle">Lon thứ hai mới là lon đáng nhớ.</p>
+            <BrandMark />
           </div>
 
           <div>
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-body-subtle">
-          © {new Date().getFullYear()} The 2nd Beer. All rights reserved.
+          © {new Date().getFullYear()} LUVINI & CO. All rights reserved.
         </div>
       </div>
     </footer>

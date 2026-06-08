@@ -6,7 +6,7 @@ export const productDetailExtras = {
     ibu: '20',
     serveTemp: '6–8°C',
     longDescription:
-      'Leffe Brown là biểu tượng của dòng Brown Ale Bỉ: màu hổ phách đậm, bọt kem dày và hương malt nướng quyến rũ. Đây là lựa chọn lý tưởng cho buổi tối thong dong — đặc biệt khi bạn đã qua “lon đầu” và muốn thưởng thức trọn vẹn “lon thứ hai”.',
+      'Leffe Brown là biểu tượng của dòng Brown Ale Bỉ: màu hổ phách đậm, bọt kem dày và hương malt nướng quyến rũ. Đây là lựa chọn lý tưởng cho buổi tối thong dong — khi bạn muốn một ale Bỉ đậm vị mà vẫn dễ uống.',
     tastingNotes: ['Caramel nhẹ', 'Malt nướng', 'Hậu vị ngọt ấm', 'Bọt mịn'],
     foodPairing: ['Thịt nướng', 'Gà quay', 'Phô mai cứng', 'Sô-cô-la đen'],
     highlights: ['Nhập khẩu chính hãng', 'Phù hợp mùa mát', 'Dễ uống với đồ nướng'],
@@ -28,7 +28,7 @@ export const productDetailExtras = {
     ibu: '38',
     serveTemp: '6–8°C',
     longDescription:
-      'Sierra Nevada Pale Ale là huyền thoại craft Mỹ: đắng hoa bia rõ ràng nhưng không gắt, hương cam chanh và thông tươi. Lon thứ hai thường là lúc bạn cảm nhận rõ độ cân bằng giữa đắng và ngọt malt.',
+      'Sierra Nevada Pale Ale là huyền thoại craft Mỹ: đắng hoa bia rõ ràng nhưng không gắt, hương cam chanh và thông tươi. Thưởng thức chậm để cảm nhận rõ độ cân bằng giữa đắng và ngọt malt.',
     tastingNotes: ['Hoa bia (hop)', 'Cam chanh', 'Thông', 'Đắng cân bằng'],
     foodPairing: ['Burger', 'Tacos', 'Pizza cay', 'Gà rán'],
     highlights: ['Craft kinh điển', 'Hương hop tươi', 'Dễ gây nghiện cho fan IPA nhẹ'],
@@ -50,7 +50,7 @@ export const productDetailExtras = {
     ibu: '32',
     serveTemp: '6–8°C',
     longDescription:
-      'Duvel là strong golden ale Bỉ nổi tiếng với bọt dày như champagne và hậu vị khô, cay nhẹ tinh tế. Một chai đủ để kéo dài cuộc trò chuyện — đúng tinh thần The 2nd Beer.',
+      'Duvel là strong golden ale Bỉ nổi tiếng với bọt dày như champagne và hậu vị khô, cay nhẹ tinh tế. Một chai đủ để kéo dài cuộc trò chuyện — đúng tinh thần LUVINI & CO..',
     tastingNotes: ['Bọt champagne', 'Cam zest', 'Hồi', 'Khô, sạch'],
     foodPairing: ['Ốc', 'Tôm hùm', 'Gà nướng', 'Phô mai brie'],
     highlights: ['Biểu tượng Bỉ', 'Sủi đẹp', 'Thưởng thức chậm'],
@@ -72,7 +72,7 @@ export const productDetailExtras = {
     ibu: '18',
     serveTemp: '2–4°C',
     longDescription:
-      'Corona Extra mang phong cách bia biển Mexico: trong, nhẹ, cực kỳ dễ uống khi lạnh và có thể thêm chanh. Lon thứ hai thường là lúc bạn thả lỏng hoàn toàn.',
+      'Corona Extra mang phong cách bia biển Mexico: trong, nhẹ, cực kỳ dễ uống khi lạnh và có thể thêm chanh. Rất hợp để thả lỏng sau một ngày dài.',
     tastingNotes: ['Nhẹ', 'Ngọt malt nhẹ', 'Trong', 'Kết thúc sạch'],
     foodPairing: ['Tacos', 'Ceviche', 'Đồ nướng', 'Salad'],
     highlights: ['Uống lạnh', 'Hợp chanh', 'Phong cách biển'],
@@ -105,7 +105,7 @@ export const productDetailExtras = {
     ibu: '30',
     serveTemp: '10–12°C',
     longDescription:
-      'Chimay Blue là trappist ale cao cấp: đậm trái cây sấy, gia vị ấm và độ cồn cao nhưng hài hòa. Nên thưởng thức chậm, hơi ấm — lon thứ hai đáng giá từng ngụm.',
+      'Chimay Blue là trappist ale cao cấp: đậm trái cây sấy, gia vị ấm và độ cồn cao nhưng hài hòa. Nên thưởng thức chậm, hơi ấm — mỗi ngụm đều đáng giá.',
     tastingNotes: ['Mận khô', 'Nho khô', 'Gia vị', 'Ấm, sâu'],
     foodPairing: ['Thịt hầm', 'Phô mai mạnh', 'Paté', 'Tráng miệng đậm'],
     highlights: ['Trappist', 'Cao cấp', 'Thưởng thức chậm'],
@@ -127,7 +127,7 @@ export const productDetailExtras = {
     ibu: '24',
     serveTemp: '4–6°C',
     longDescription:
-      'Stella Artois là pilsner Bỉ cổ điển: vàng trong, đắng hoa nhẹ, sủi đều — “an toàn” cho mọi dịp nhưng vẫn đủ chất để thưởng thức lon thứ hai một cách thong dong.',
+      'Stella Artois là pilsner Bỉ cổ điển: vàng trong, đắng hoa nhẹ, sủi đều — “an toàn” cho mọi dịp nhưng vẫn đủ chất để thưởng thức thong dong.',
     tastingNotes: ['Hoa nhẹ', 'Malt ngọt', 'Trong', 'Khô'],
     foodPairing: ['Mì Ý', 'Gà', 'Khoai tây chiên', 'Salad'],
     highlights: ['Pilsner kinh điển', 'Dễ uống', 'Hợp tiệc'],
@@ -160,7 +160,7 @@ export const productDetailExtras = {
     ibu: '26',
     serveTemp: '8–10°C',
     longDescription:
-      'Delirium Tremens với biểu tượng voi hồng: strong ale Bỉ ngọt nhẹ, hoa quả và gia vị, bọt vàng đẹp. Một chai kể chuyện — lon thứ hai là lúc bạn để ý từng lớp hương.',
+      'Delirium Tremens với biểu tượng voi hồng: strong ale Bỉ ngọt nhẹ, hoa quả và gia vị, bọt vàng đẹp. Một chai kể chuyện — lúc bạn để ý từng lớp hương.',
     tastingNotes: ['Hoa quả', 'Gia vị', 'Ngọt nhẹ', 'Bọt vàng'],
     foodPairing: ['Phô mai', 'Moules', 'Gà nướng', 'Tráng miệng'],
     highlights: ['Voi hồng', 'Strong ale Bỉ', 'Độc đáo'],
@@ -171,7 +171,7 @@ export const productDetailExtras = {
     ibu: '15',
     serveTemp: '2–4°C',
     longDescription:
-      'Tiger Crystal là lager trong, nhẹ, dễ uống — rất hợp khí hậu nhiệt đới và đồ nướng. Lon thứ hai thường đến cùng tiếng cười và món ăn cay.',
+      'Tiger Crystal là lager trong, nhẹ, dễ uống — rất hợp khí hậu nhiệt đới và đồ nướng. Thường đi cùng tiếng cười và món ăn cay.',
     tastingNotes: ['Trong', 'Nhẹ', 'Ngọt nhẹ', 'Kết thúc gọn'],
     foodPairing: ['Đồ nướng', 'Hải sản', 'Lẩu', 'Gỏi'],
     highlights: ['Giá tốt', 'Dễ uống', 'Hợp nhiệt đới'],

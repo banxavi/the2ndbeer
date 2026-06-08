@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { BRAND } from '../data/brand';
 import { mockProducts } from '../mockData';
 import { getSearchParam, navigateHome, useLocation } from '../lib/router';
 import ProductGrid from '../components/product/ProductGrid';
@@ -21,7 +22,7 @@ export default function SearchPage() {
     <div className="site-container pt-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <div className="text-xs font-semibold tracking-normal text-brand-amber">TÌM KIẾM · THE 2ND BEER</div>
+          <div className="brand-logo-gradient text-xs font-semibold tracking-normal">TÌM KIẾM · {BRAND.name}</div>
           <h1 className="mt-2 text-3xl font-semibold">Kết quả tìm kiếm</h1>
           <p className="mt-2 text-sm text-body-muted">
             Từ khoá: <span className="text-white/85">“{q || '—'}”</span>

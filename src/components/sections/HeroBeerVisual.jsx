@@ -61,7 +61,7 @@ export default function HeroBeerVisual({ className = '' }) {
           fill="none"
         />
 
-        {/* Second glass silhouette (the “2nd beer”) */}
+        {/* Second glass silhouette — decorative */}
         <g opacity="0.35" transform="translate(118, 40) scale(0.55)">
           <path
             d="M52 92 L68 285 Q100 302 132 285 L148 92 Q100 72 52 92 Z"

@@ -3,18 +3,18 @@ export const mockReviews = [
     id: 'r1',
     name: 'Minh T.',
     rating: 5,
-    text: 'Lon thứ hai đúng là “đúng gu” — hậu vị mượt, không gắt. Tôi hay mời bạn bè dùng cuối tuần.',
+    text: 'Tư vấn vang pairing rất có tâm — chai Chile gợi ý hợp với steak, hậu vị mượt. Sẽ quay lại mua thêm.',
   },
   {
     id: 'r2',
     name: 'Lan P.',
     rating: 5,
-    text: 'Bia nhập khẩu chọn lọc kỹ, tư vấn nhanh. Mình thích dòng ale vì thơm malt và cân bằng độ đắng.',
+    text: 'Bia craft và vang Pháp đều chính hãng, đóng gói cẩn thận. LUVINI & CO. đúng kiểu curated premium.',
   },
   {
     id: 'r3',
     name: 'Hoàng K.',
     rating: 4,
-    text: 'Giao hàng gọn, đóng gói cẩn thận. The 2nd Beer là lựa chọn ổn cho tiệc nhỏ tại nhà.',
+    text: 'Giao nhanh, giá minh bạch. Mình thích mục “vang ngon giá tốt” — dễ chọn cho tiệc nhỏ tại nhà.',
   },
 ];
