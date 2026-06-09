@@ -19,10 +19,17 @@ export default function ProductPrice({ product, size = 'md', className = '' }) {
   }
 
   if (resolved.mode === 'sale') {
+    const originalClass =
+      size === 'lg'
+        ? 'text-base text-body-muted line-through sm:text-lg'
+        : 'text-sm text-body-muted line-through sm:text-base';
+    const gapClass = size === 'lg' ? 'gap-3 sm:gap-4' : size === 'sm' ? 'gap-2' : 'gap-2.5 sm:gap-3';
+    const saleOffset = size === 'lg' ? 'ml-2 sm:ml-3' : 'ml-1.5 sm:ml-2';
+
     return (
-      <div className={`relative flex min-h-[2.5rem] items-center justify-center ${className}`.trim()}>
-        <span className="absolute left-0 text-sm text-body-muted line-through sm:text-base">{resolved.original}</span>
-        <span className={`${mainClass} text-brand-amber`}>{resolved.sale}</span>
+      <div className={`flex min-h-[2.5rem] items-center justify-center ${gapClass} ${className}`.trim()}>
+        <span className={`shrink-0 ${originalClass}`}>{resolved.original}</span>
+        <span className={`shrink-0 ${mainClass} ${saleOffset} text-brand-amber`}>{resolved.sale}</span>
       </div>
     );
   }
