@@ -309,6 +309,61 @@ body {
   background-color: #82101b;
 }
 
+/* Product detail — contact CTAs (tông tối, không chói) */
+.contact-btn {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(33, 33, 33, 0.92);
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(240, 240, 240, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.contact-btn:hover {
+  color: #ffffff;
+}
+
+.contact-btn--facebook {
+  border-color: rgba(24, 119, 242, 0.22);
+  background-color: rgba(24, 119, 242, 0.08);
+}
+
+.contact-btn--facebook:hover {
+  border-color: rgba(24, 119, 242, 0.38);
+  background-color: rgba(24, 119, 242, 0.14);
+}
+
+.contact-btn--zalo {
+  border-color: rgba(0, 123, 255, 0.22);
+  background-color: rgba(0, 123, 255, 0.08);
+}
+
+.contact-btn--zalo:hover {
+  border-color: rgba(0, 123, 255, 0.38);
+  background-color: rgba(0, 123, 255, 0.14);
+}
+
+.contact-btn--phone {
+  border-color: rgba(212, 160, 23, 0.28);
+  background-color: rgba(155, 19, 33, 0.1);
+}
+
+.contact-btn--phone:hover {
+  border-color: rgba(212, 160, 23, 0.42);
+  background-color: rgba(155, 19, 33, 0.16);
+}
+
 /* Section background — khách upload ảnh vào sectionBackgrounds.js */
 .section-backdrop {
   position: relative;

@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
+import facebookIcon from '../assets/facebook-icon.svg';
 import { BRAND } from '../data/brand';
+import { formatPhoneDisplay } from '../lib/formatters';
 import { buildTelHref, buildZaloHref } from '../lib/links';
 import { getProductBySlug, getProductGallery, getRelatedProducts } from '../lib/products';
 import { navigateHome } from '../lib/router';
@@ -88,27 +90,43 @@ export default function ProductDetailPage({ productSlug }) {
               </div>
             ) : null}
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <a href={buildTelHref(HOTLINE)} className="contact-btn contact-btn--phone">
+                Gọi {formatPhoneDisplay(HOTLINE)}
+              </a>
+              <a
+                href={BRAND.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-btn contact-btn--facebook"
+              >
+                <img
+                  src={facebookIcon}
+                  alt=""
+                  className="h-5 w-5 shrink-0 object-contain"
+                  width={20}
+                  height={20}
+                  loading="lazy"
+                />
+                Facebook
+              </a>
               <a
                 href={buildZaloHref(HOTLINE)}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#007bff] px-4 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-[#006ae0]"
+                className="contact-btn contact-btn--zalo"
               >
                 <img
-                  className="icon"
                   src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
                   alt=""
+                  className="h-5 w-5 shrink-0 object-contain"
+                  width={20}
+                  height={20}
                   loading="lazy"
                 />
                 Zalo tư vấn
               </a>
-              <a
-                href={buildTelHref(HOTLINE)}
-                className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#9B1321] px-4 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-[#82101b]"
-              >
-                Gọi {HOTLINE}
-              </a>
+          
             </div>
 
             <p className="mt-4 text-xs text-body-subtle">
