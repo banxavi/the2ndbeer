@@ -1,44 +1,38 @@
+import { BRAND } from '../../data/brand';
 import logoImg from '../../assets/L&Co.png';
 
-export default function BrandMark({ compact = false }) {
+export default function BrandMark({ variant = 'header' }) {
+  if (variant === 'footer') {
+    return (
+      <div className="flex items-center gap-3 sm:gap-4">
+        <img
+          src={logoImg}
+          alt=""
+          className="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-brand-amber/25 sm:h-14 sm:w-14"
+          width={56}
+          height={56}
+          loading="lazy"
+        />
+        <p className="font-serif text-base italic text-white/90 sm:text-lg">&ldquo;{BRAND.tagline}&rdquo;</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
       <img
         src={logoImg}
         alt=""
-        className={[
-          'shrink-0 rounded-full object-cover ring-1 ring-brand-amber/25',
-          compact ? 'h-9 w-9' : 'h-10 w-10 sm:h-12 sm:w-12',
-        ].join(' ')}
+        className="h-10 w-10 shrink-0 rounded-full object-cover ring-1 ring-brand-amber/25 sm:h-12 sm:w-12"
         width={48}
         height={48}
         loading="eager"
       />
       <div className="min-w-0">
-        <div
-          className={[
-            'brand-wordmark brand-logo-gradient font-semibold leading-none tracking-[0.06em]',
-            compact ? 'text-base' : 'text-[1.05rem] sm:text-xl',
-          ].join(' ')}
-        >
-          LUVINI &amp; CO.
+        <div className="brand-wordmark brand-logo-gradient truncate text-[1.05rem] font-semibold leading-none tracking-[0.06em] sm:text-xl">
+          Luvini &amp; co.
         </div>
-        <p
-          className={[
-            'mt-1 truncate font-sans leading-snug text-white/90',
-            compact ? 'text-[9px]' : 'text-[10px] sm:text-[11px]',
-          ].join(' ')}
-        >
-          Curated Fine Wine &amp; Imported Beer
-        </p>
-        <p
-          className={[
-            'truncate font-sans leading-snug text-white/78',
-            compact ? 'text-[9px]' : 'text-[10px] sm:text-[11px]',
-          ].join(' ')}
-        >
-          The Art of Fine Taste
-        </p>
+        <p className="mt-1 truncate text-[10px] leading-snug text-white/90 sm:text-[11px]">{BRAND.subtitle}</p>
       </div>
     </div>
   );

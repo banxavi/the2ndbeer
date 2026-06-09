@@ -23,9 +23,7 @@ export default function Footer() {
     <footer className="mt-16 border-t border-white/10 bg-premium-black">
       <div className="site-container py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <BrandMark />
-          </div>
+          <BrandMark variant="footer" />
 
           <div>
             <div className="text-sm font-semibold text-white">Theo dõi chúng tôi</div>

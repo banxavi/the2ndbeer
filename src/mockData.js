@@ -1,25 +1,28 @@
+import { CLIENT_PRODUCT_ASSETS } from './data/clientAssets';
+
 export const mockProducts = [
   {
     id: 1,
-    name: 'Leffe Brown',
-    image:
-      'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=max',
-    price: '95.000 đ',
-    origin: 'Bỉ',
-    style: 'Brown Ale',
-    abv: '6.5%',
-    description: 'Hương vị đậm đà từ mạch nha nướng, hương thơm caramel nhẹ nhàng quyến rũ.',
+    name: 'Rượu Nho Mẫu',
+    image: CLIENT_PRODUCT_ASSETS.ruouNho.card,
+    gallery: CLIENT_PRODUCT_ASSETS.ruouNho.gallery,
+    price: 'Liên hệ',
+    contactPrice: true,
+    origin: 'Ý',
+    style: 'Vang đỏ',
+    abv: '13.5%',
+    description: 'Ảnh mẫu từ khách — kiểm tra độ đồng bộ trên card và trang chi tiết.',
   },
   {
     id: 2,
-    name: 'Eku Bavarian 11%',
-    image:
-      'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=500&auto=format&fit=max',
-    price: '135.000 đ',
-    origin: 'Đức',
-    style: 'Bock',
-    abv: '11.0%',
-    description: 'Dòng bia nặng độ cao cấp, hậu vị ngọt sô-cô-la và trái cây khô đậm nét.',
+    name: 'Rượu Vang Mẫu',
+    image: CLIENT_PRODUCT_ASSETS.ruouVang.card,
+    gallery: CLIENT_PRODUCT_ASSETS.ruouVang.gallery,
+    price: '890.000 đ',
+    origin: 'Pháp',
+    style: 'Vang đỏ',
+    abv: '14.0%',
+    description: 'Ảnh mẫu từ khách — gallery 3 góc chụp trên trang chi tiết.',
   },
   {
     id: 3,
@@ -48,7 +51,8 @@ export const mockProducts = [
     name: 'Duvel Belgian Strong',
     image:
       'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?q=80&w=500&auto=format&fit=max',
-    price: '145.000 đ',
+    price: 'Liên hệ',
+    contactPrice: true,
     origin: 'Bỉ',
     style: 'Belgian Strong Ale',
     abv: '8.5%',
@@ -71,6 +75,7 @@ export const mockProducts = [
     image:
       'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=max',
     price: '65.000 đ',
+    salePrice: '52.000 đ',
     origin: 'Mexico',
     style: 'Lager',
     abv: '4.5%',

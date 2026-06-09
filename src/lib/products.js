@@ -60,6 +60,16 @@ export function getRedirectSlugFromLegacyPath(pathname) {
   return product ? getProductSlug(product) : null;
 }
 
+/** Gallery chi tiết — 3 ảnh; fallback mock dùng ảnh chính lặp cho đến khi khách upload */
+export function getProductGallery(product) {
+  if (!product) return [];
+  if (Array.isArray(product.gallery) && product.gallery.length > 0) {
+    return product.gallery.slice(0, 3);
+  }
+  const main = product.image;
+  return main ? [main, main, main] : [];
+}
+
 export function getRelatedProducts(productId, limit = 4) {
   const current = getProductById(productId);
   if (!current) return [];

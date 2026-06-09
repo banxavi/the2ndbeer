@@ -1,26 +1,24 @@
 /** Chi tiết bổ sung theo id — gộp với mockProducts khi hiển thị trang sản phẩm */
 export const productDetailExtras = {
   1: {
-    brewery: 'Abbaye de Leffe',
-    volume: '330ml',
-    ibu: '20',
-    serveTemp: '6–8°C',
+    brewery: 'Mẫu — chờ tên nhà sản xuất',
+    volume: '750ml',
+    serveTemp: '16–18°C',
     longDescription:
-      'Leffe Brown là biểu tượng của dòng Brown Ale Bỉ: màu hổ phách đậm, bọt kem dày và hương malt nướng quyến rũ. Đây là lựa chọn lý tưởng cho buổi tối thong dong — khi bạn muốn một ale Bỉ đậm vị mà vẫn dễ uống.',
-    tastingNotes: ['Caramel nhẹ', 'Malt nướng', 'Hậu vị ngọt ấm', 'Bọt mịn'],
-    foodPairing: ['Thịt nướng', 'Gà quay', 'Phô mai cứng', 'Sô-cô-la đen'],
-    highlights: ['Nhập khẩu chính hãng', 'Phù hợp mùa mát', 'Dễ uống với đồ nướng'],
+      'Sản phẩm mẫu dùng ảnh rượu nho từ khách hàng. Vui lòng xem thử card listing và ảnh chi tiết để đánh giá độ đồng bộ nền, góc chụp và tỉ lệ trong khung.',
+    tastingNotes: ['Quả chín', 'Gia vị nhẹ', 'Tanin mềm', 'Hậu vị dài'],
+    foodPairing: ['Thịt đỏ nướng', 'Phô mai cứng', 'Mì Ý', 'Thịt hun khói'],
+    highlights: ['Ảnh mẫu khách hàng', 'Card + chi tiết', 'Chờ duyệt trước go-live'],
   },
   2: {
-    brewery: 'Kulmbacher Brauerei',
-    volume: '500ml',
-    ibu: '26',
-    serveTemp: '8–10°C',
+    brewery: 'Mẫu — chờ tên nhà sản xuất',
+    volume: '750ml',
+    serveTemp: '16–18°C',
     longDescription:
-      'Eku 11% là bock beer Đức đậm đặc với thân bia đầy đặn và độ cồn cao nhưng vẫn cân bằng. Hương vị ngọt malt và trái cây khô nổi bật — một trải nghiệm “chậm mà sâu” cho người thích bia có chiều sâu.',
-    tastingNotes: ['Sô-cô-la đen', 'Trái cây khô', 'Malt ngọt', 'Hậu vị dài'],
-    foodPairing: ['Thịt hun khói', 'Xúc xích Đức', 'Beef stew', 'Bánh mì đen'],
-    highlights: ['Độ cồn cao', 'Hậu vị phức tạp', 'Lon lớn 500ml'],
+      'Sản phẩm mẫu dùng bộ ảnh rượu vang từ khách hàng — gồm 2 góc chi tiết và 1 ảnh card. Kiểm tra gallery trên mobile/desktop trước khi chuẩn hóa toàn bộ catalog.',
+    tastingNotes: ['Mận chín', 'Đinh hương', 'Sô-cô-la', 'Gỗ sồi nhẹ'],
+    foodPairing: ['Bít tết', 'Vịt quay', 'Phô mai blue', 'Sô-cô-la đen'],
+    highlights: ['Gallery 3 ảnh', 'Ảnh mẫu khách hàng', 'Chờ duyệt trước go-live'],
   },
   3: {
     brewery: 'Sierra Nevada Brewing',

@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
 import { BRAND } from '../data/brand';
-import { formatPrice } from '../lib/formatters';
 import { buildTelHref, buildZaloHref } from '../lib/links';
-import { getProductBySlug, getRelatedProducts } from '../lib/products';
+import { getProductBySlug, getProductGallery, getRelatedProducts } from '../lib/products';
 import { navigateHome } from '../lib/router';
 import ProductCard from '../components/product/ProductCard';
+import ProductImageGallery from '../components/product/ProductImageGallery';
+import ProductPrice from '../components/product/ProductPrice';
 
 const HOTLINE = BRAND.hotline;
 
 export default function ProductDetailPage({ productSlug }) {
   const product = getProductBySlug(productSlug);
   const related = product ? getRelatedProducts(product.id) : [];
+  const gallery = product ? getProductGallery(product) : [];
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -33,14 +35,13 @@ export default function ProductDetailPage({ productSlug }) {
   }
 
   const specs = [
-    { label: 'Xuất xứ', value: product.origin },
     { label: 'Phong cách', value: product.style },
     { label: 'ABV', value: product.abv },
     { label: 'IBU', value: product.ibu ?? '—' },
     { label: 'Dung tích', value: product.volume ?? '—' },
     { label: 'Nhiệt độ uống', value: product.serveTemp ?? '—' },
     { label: 'Nhà máy', value: product.brewery ?? '—' },
-  ];
+  ].filter((s) => s.value && s.value !== '—');
 
   return (
     <article className="pb-16">
@@ -54,16 +55,7 @@ export default function ProductDetailPage({ productSlug }) {
         </button>
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-premium-dark">
-            <div className="product-media-well product-detail-media">
-              <img src={product.image} alt={product.name} className="product-media-well__img" />
-              {product.style ? (
-                <span className="absolute left-4 top-4 z-10 rounded-full bg-premium-black/80 px-3 py-1 text-xs font-semibold text-brand-amber ring-1 ring-brand-amber/30">
-                  {product.style}
-                </span>
-              ) : null}
-            </div>
-          </div>
+          <ProductImageGallery images={gallery} alt={product.name} styleLabel={product.style} />
 
           <div>
             <p className="text-xs font-semibold tracking-normal text-brand-amber">CHI TIẾT SẢN PHẨM</p>
@@ -72,24 +64,29 @@ export default function ProductDetailPage({ productSlug }) {
               <p className="mt-2 text-sm text-body-muted">{product.brewery}</p>
             ) : null}
 
-            <p className="mt-4 text-3xl font-bold text-brand-amber">{formatPrice(product.price)}</p>
+            <div className="mt-5">
+              <ProductPrice product={product} size="lg" />
+            </div>
+
             <p className="mt-4 text-base leading-relaxed text-body-muted">
               {product.longDescription ?? product.description}
             </p>
 
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {specs.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-xl border border-white/10 bg-premium-dark/80 px-3 py-3"
-                >
-                  <div className="text-[10px] font-semibold uppercase tracking-wide text-brand-amber/80">
-                    {s.label}
+            {specs.length > 0 ? (
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {specs.map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-xl border border-white/10 bg-premium-dark/80 px-3 py-3"
+                  >
+                    <div className="text-[10px] font-semibold uppercase tracking-wide text-brand-amber/80">
+                      {s.label}
+                    </div>
+                    <div className="mt-1 text-sm font-medium text-white">{s.value}</div>
                   </div>
-                  <div className="mt-1 text-sm font-medium text-white">{s.value}</div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : null}
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               <a

@@ -1,6 +1,6 @@
-import { formatPrice } from '../../lib/formatters';
 import { productPath } from '../../lib/products';
 import { navigate } from '../../lib/router';
+import ProductPrice from './ProductPrice';
 
 export default function ProductCard({ product, compact = false }) {
   const href = productPath(product);
@@ -35,33 +35,22 @@ export default function ProductCard({ product, compact = false }) {
       </div>
 
       <div className={`flex flex-1 flex-col ${compact ? 'p-3 sm:p-4' : 'p-5'}`}>
-        <h3 className={`line-clamp-2 font-semibold text-white ${compact ? 'text-sm sm:text-base' : 'text-base'}`}>
+        <h3 className={`line-clamp-2 text-center font-semibold text-white ${compact ? 'text-sm sm:text-base' : 'text-base'}`}>
           {product.name}
         </h3>
-        <p className={`mt-1 text-body-muted ${compact ? 'text-xs sm:text-sm' : 'text-sm'}`}>
-          Xuất xứ: <span className="text-white/90">{product.origin}</span>
-          {product.abv ? (
-            <>
-              {' '}
-              · ABV: <span className="text-white/90">{product.abv}</span>
-            </>
-          ) : null}
-        </p>
 
-        {!compact ? (
-          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-body-muted">{product.description}</p>
+        {product.abv ? (
+          <p className={`mt-1 text-center text-body-muted ${compact ? 'text-xs' : 'text-sm'}`}>
+            ABV: <span className="text-white/90">{product.abv}</span>
+          </p>
         ) : null}
 
-        <div className={`mt-auto flex items-center justify-between gap-2 border-t border-white/[0.06] pt-3 ${compact ? 'mt-3' : 'mt-4'}`}>
-          <div className={`font-bold text-brand-amber ${compact ? 'text-sm sm:text-base' : 'text-lg'}`}>
-            {formatPrice(product.price)}
-          </div>
-          <span
-            className={`shrink-0 font-medium text-brand-amber/70 transition group-hover:text-brand-amber ${compact ? 'text-xs' : 'text-sm'}`}
-            aria-hidden
-          >
-            Chi tiết →
-          </span>
+        {!compact ? (
+          <p className="mt-3 line-clamp-2 text-center text-sm leading-relaxed text-body-muted">{product.description}</p>
+        ) : null}
+
+        <div className={`mt-auto border-t border-white/[0.06] pt-3 ${compact ? 'mt-3' : 'mt-4'}`}>
+          <ProductPrice product={product} size={compact ? 'sm' : 'md'} />
         </div>
       </div>
     </a>

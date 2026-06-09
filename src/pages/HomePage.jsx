@@ -4,8 +4,8 @@ import BrandStorySection from '../components/sections/BrandStorySection';
 import UspSection from '../components/sections/UspSection';
 import BestSellersSection from '../components/sections/BestSellersSection';
 import ValueDealsSection from '../components/sections/ValueDealsSection';
-import ReviewsSection from '../components/sections/ReviewsSection';
 import AvailableAtSection from '../components/sections/AvailableAtSection';
+import SectionBackdrop from '../components/ui/SectionBackdrop';
 import { isHomePath, scrollToSection, useLocation } from '../lib/router';
 
 export default function HomePage() {
@@ -20,14 +20,25 @@ export default function HomePage() {
 
   return (
     <>
-      <HeroSection />
+      <SectionBackdrop sectionKey="hero">
+        <HeroSection />
+      </SectionBackdrop>
       <div className="site-container">
-        <BestSellersSection />
-        <ValueDealsSection />
-        <ReviewsSection />
-        <BrandStorySection />
-        <UspSection />
-        <AvailableAtSection />
+        <SectionBackdrop sectionKey="products">
+          <BestSellersSection />
+        </SectionBackdrop>
+        <SectionBackdrop sectionKey="valueDeals">
+          <ValueDealsSection />
+        </SectionBackdrop>
+        <SectionBackdrop sectionKey="story">
+          <BrandStorySection />
+        </SectionBackdrop>
+        <SectionBackdrop sectionKey="usp">
+          <UspSection />
+        </SectionBackdrop>
+        <SectionBackdrop sectionKey="partners">
+          <AvailableAtSection />
+        </SectionBackdrop>
       </div>
     </>
   );
