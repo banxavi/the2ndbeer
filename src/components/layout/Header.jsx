@@ -1,23 +1,28 @@
 import { useEffect, useState } from 'react';
 import { BRAND } from '../../data/brand';
+import { NAV_ITEMS } from '../../data/nav';
 import { buildTelHref } from '../../lib/links';
 import { formatPhoneDisplay } from '../../lib/formatters';
-import { navigateHome } from '../../lib/router';
+import { navigate, useLocation } from '../../lib/router';
 import IconButton from '../ui/IconButton';
 import BrandMark from './BrandMark';
 import ProductSearchForm from './ProductSearchForm';
 
 const HOTLINE = BRAND.hotline;
 
-const navItems = [
-  { href: '#ruou-vang', label: 'Rượu vang' },
-  { href: '#ruou-manh', label: 'Rượu mạnh' },
-  { href: '#products', label: 'Bia' },
-  { href: '#qua-tet', label: 'Quà Tết' },
-  { href: '#phu-kien', label: 'Phụ kiện' },
-  { href: '#khuyen-mai', label: 'Chương trình ưu đãi' },
-  { href: '#kien-thuc', label: 'Kiến thức' },
-];
+const navLinkClass = (active) =>
+  [
+    'whitespace-nowrap font-medium transition-colors',
+    'text-sm xl:text-[0.95rem] 2xl:text-base',
+    active ? 'text-brand-amber' : 'text-body-muted hover:text-white',
+  ].join(' ');
+
+const mobileNavLinkClass = (active) =>
+  [
+    'flex min-h-11 items-center rounded-md px-4 font-medium transition-colors',
+    'text-base sm:text-lg',
+    active ? 'bg-brand-amber/10 text-brand-amber' : 'text-body-muted hover:bg-white/5 hover:text-white',
+  ].join(' ');
 
 function SearchIcon() {
   return (
@@ -54,13 +59,15 @@ function MenuIcon({ open }) {
 }
 
 export default function Header() {
+  const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const goHomeSection = (e, hash) => {
-    e.preventDefault();
+  const isActive = (path) => pathname === path;
+
+  const goTo = (path) => {
     closePanels();
-    navigateHome(hash);
+    navigate(path);
   };
 
   useEffect(() => {
@@ -101,22 +108,29 @@ export default function Header() {
         <a
           href="/"
           className="min-w-0 shrink-0"
-          onClick={(e) => goHomeSection(e, '#top')}
-          aria-label="Luvini & co. — về trang chủ"
+          onClick={(e) => {
+            e.preventDefault();
+            goTo('/');
+          }}
+          aria-label="LUVINI & CO. — về trang chủ"
         >
           <BrandMark />
         </a>
 
         <nav
-          className="hidden max-w-[52%] flex-1 items-center justify-center gap-x-2 gap-y-1 xl:flex xl:gap-x-3"
+          className="hidden max-w-[54%] flex-1 items-center justify-center gap-x-2.5 gap-y-1 xl:flex xl:gap-x-4"
           aria-label="Điều hướng chính"
         >
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <a
-              key={item.href}
-              href={`/${item.href}`}
-              onClick={(e) => goHomeSection(e, item.href)}
-              className="whitespace-nowrap text-[11px] text-body-muted transition-colors hover:text-white xl:text-xs 2xl:text-sm"
+              key={item.path}
+              href={item.path}
+              onClick={(e) => {
+                e.preventDefault();
+                goTo(item.path);
+              }}
+              className={navLinkClass(isActive(item.path))}
+              aria-current={isActive(item.path) ? 'page' : undefined}
             >
               {item.label}
             </a>
@@ -159,12 +173,16 @@ export default function Header() {
             aria-label="Menu di động"
           >
             <div className="site-container flex flex-col gap-1 py-4">
-              {navItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <a
-                  key={item.href}
-                  href={`/${item.href}`}
-                  onClick={(e) => goHomeSection(e, item.href)}
-                  className="flex min-h-11 items-center rounded-md px-4 text-base font-medium text-body-muted transition-colors hover:bg-white/5 hover:text-white"
+                  key={item.path}
+                  href={item.path}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goTo(item.path);
+                  }}
+                  className={mobileNavLinkClass(isActive(item.path))}
+                  aria-current={isActive(item.path) ? 'page' : undefined}
                 >
                   {item.label}
                 </a>

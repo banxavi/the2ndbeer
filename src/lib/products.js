@@ -22,9 +22,18 @@ export function getProductSlug(product) {
   return product.slug ?? slugify(product.name);
 }
 
-export function productPath(product) {
+export function productPath(product, { from, q } = {}) {
   const slug = getProductSlug(product);
-  return slug ? `/product/${slug}` : '/';
+  if (!slug) return '/';
+  const base = `/product/${slug}`;
+  if (from === 'search') {
+    const query = String(q ?? '').trim();
+    if (query) {
+      return `${base}?from=search&q=${encodeURIComponent(query)}`;
+    }
+    return `${base}?from=search`;
+  }
+  return base;
 }
 
 export function getProductSlugFromPath(pathname) {

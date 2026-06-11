@@ -1,12 +1,12 @@
 /** Ảnh mẫu từ khách hàng — thay bằng CDN/CMS khi go-live */
-import heroBg from '../assets/bg-hero.webp';
-import heroBg1 from '../assets/bg-hero_1.webp';
-import heroBg2 from '../assets/bg-hero_2.webp';
-import ruouNhoCard from '../assets/ruou_nho_card.webp';
-import ruouVangCard from '../assets/ruou_vang_card.webp';
-import ruouNhoChiTiet from '../assets/ruou_nho_chi_tiet.webp';
-import ruouVangChiTiet1 from '../assets/ruou_vang_chi_tiet_1.webp';
-import ruouVangChiTiet2 from '../assets/ruou_vang_chi_tiet_2.webp';
+import heroBg from '../assets/bg-hero.png';
+import heroBg1 from '../assets/bg-hero_1.png';
+import heroBg2 from '../assets/bg-hero_2.png';
+import ruouNhoCard from '../assets/ruou_nho_card.png';
+import ruouVangCard from '../assets/ruou_vang_card.png';
+import ruouNhoChiTiet from '../assets/ruou_nho_chi_tiet.png';
+import ruouVangChiTiet1 from '../assets/ruou_vang_chi_tiet_1.png';
+import ruouVangChiTiet2 from '../assets/ruou_vang_chi_tiet_2.png';
 
 /** @deprecated dùng HERO_BANNERS */
 export const HERO_BACKGROUNDS = [heroBg, heroBg1, heroBg2];

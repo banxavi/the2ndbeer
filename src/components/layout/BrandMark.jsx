@@ -29,10 +29,10 @@ export default function BrandMark({ variant = 'header' }) {
         loading="eager"
       />
       <div className="min-w-0">
-        <div className="brand-wordmark brand-logo-gradient truncate text-[1.05rem] font-semibold leading-none tracking-[0.06em] sm:text-xl">
-          Luvini &amp; co.
+        <div className="brand-wordmark brand-logo-gradient truncate text-[1.05rem] font-semibold uppercase leading-none tracking-[0.08em] sm:text-xl">
+          {BRAND.name}
         </div>
-        <p className="mt-1 truncate text-[10px] leading-snug text-white/90 sm:text-[11px]">{BRAND.subtitle}</p>
+        <p className="mt-1 truncate text-[10px] leading-snug text-white/90 sm:text-[13px]">{BRAND.subtitle}</p>
       </div>
     </div>
   );

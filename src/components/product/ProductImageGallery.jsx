@@ -19,11 +19,11 @@ export default function ProductImageGallery({ images, alt, styleLabel }) {
   return (
     <div className="product-gallery overflow-hidden rounded-2xl border border-white/10 bg-premium-dark">
       <div className="product-gallery-viewport relative">
-        {styleLabel ? (
+        {/* {styleLabel ? (
           <span className="absolute left-4 top-4 z-10 rounded-full bg-premium-black/80 px-3 py-1 text-xs font-semibold text-brand-amber ring-1 ring-brand-amber/30">
             {styleLabel}
           </span>
-        ) : null}
+        ) : null} */}
 
         {slides.length > 1 ? (
           <>
@@ -70,7 +70,7 @@ export default function ProductImageGallery({ images, alt, styleLabel }) {
                 i === safeIndex ? 'border-brand-amber/70 ring-1 ring-brand-amber/30' : 'border-white/15 opacity-70 hover:opacity-100',
               ].join(' ')}
             >
-              <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+              <img src={src} alt="" className="h-full w-full bg-white object-contain" loading="lazy" />
             </button>
           ))}
         </div>

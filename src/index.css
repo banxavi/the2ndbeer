@@ -73,29 +73,22 @@ body {
   color: transparent;
 }
 
-/* Product image well — card & detail: mọi tỉ lệ ảnh vừa khung, nền đồng bộ */
+/* Product image well — full-bleed theo asset khách (card 4:5, chi tiết 1:1) */
 .product-media-well {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #242424;
-  background-image:
-    radial-gradient(ellipse 88% 72% at 50% 92%, rgba(212, 160, 23, 0.11) 0%, transparent 58%),
-    linear-gradient(168deg, #2c2924 0%, #262626 45%, #1e1e1e 100%);
+  background-color: #ffffff;
 }
 
 .product-media-well__img {
   display: block;
-  flex: 0 1 auto;
-  max-width: 86%;
-  max-height: 92%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center center;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
   transition: transform 0.5s ease;
 }
 
@@ -103,28 +96,27 @@ body {
   transform: scale(1.03);
 }
 
+/* Card: 800×1000 (4:5) — lấp đầy khung, không padding */
 .product-card-media {
   aspect-ratio: 4 / 5;
   min-height: 13.75rem;
-  padding: 0.75rem 0.625rem;
+  padding: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .product-card-media--compact {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   min-height: 10.5rem;
-  padding: 0.625rem 0.5rem;
+  padding: 0;
 }
 
 @media (min-width: 640px) {
   .product-card-media--compact {
     min-height: 11.75rem;
-    padding: 0.75rem 0.625rem;
   }
 
   .product-card-media:not(.product-card-media--compact) {
     min-height: 16.25rem;
-    padding: 1rem 0.75rem;
   }
 }
 
@@ -134,22 +126,20 @@ body {
   }
 }
 
+/* Detail gallery: 1200×1200 (1:1) — contain khi slide lẫn tỉ lệ (card trong gallery) */
 .product-detail-media {
-  aspect-ratio: 4 / 5;
-  min-height: 18rem;
-  padding: 1.25rem 1rem;
+  aspect-ratio: 1;
+  min-height: 16rem;
+  padding: 0;
+}
+
+.product-detail-media .product-media-well__img {
+  object-fit: contain;
 }
 
 @media (min-width: 1024px) {
   .product-detail-media {
-    aspect-ratio: 1;
     min-height: 22rem;
-    padding: 2rem 1.5rem;
-  }
-
-  .product-detail-media .product-media-well__img {
-    max-width: 82%;
-    max-height: 88%;
   }
 }
 
@@ -309,6 +299,18 @@ body {
   background-color: #82101b;
 }
 
+.footer-heading {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d4a017;
+  border-bottom: 1px solid rgba(212, 160, 23, 0.45);
+  box-shadow: 0 1px 0 rgba(212, 160, 23, 0.12);
+}
+
 /* Product detail — contact CTAs (tông tối, không chói) */
 .contact-btn {
   display: inline-flex;
@@ -453,9 +455,10 @@ body {
 .hero-banner-viewport {
   position: relative;
   width: 100%;
-  /* Desktop ~1958×745 (Cao Minh PC banner) */
+  /* Khớp file banner PC 1920×740 — hiển thị trọn, không crop */
   aspect-ratio: 1920 / 740;
   overflow: hidden;
+  background-color: #111111;
 }
 
 .hero-banner-slide {
@@ -471,11 +474,17 @@ body {
   pointer-events: auto;
 }
 
+.hero-banner-slide picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-banner-img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
 }
 
@@ -538,10 +547,10 @@ body {
 }
 
 @media (max-width: 767px) {
+  /* Dùng chung tỉ lệ PC cho đến khi có banner mobile 1080×1080 */
   .hero-banner-viewport {
-    /* Cao Minh dùng banner vuông cho mobile */
-    aspect-ratio: 1 / 1;
-    max-height: min(100vw, 28rem);
+    aspect-ratio: 1920 / 740;
+    max-height: none;
   }
 
   .hero-banner-nav {

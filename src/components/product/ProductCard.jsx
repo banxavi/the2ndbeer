@@ -2,8 +2,11 @@ import { productPath } from '../../lib/products';
 import { navigate } from '../../lib/router';
 import ProductPrice from './ProductPrice';
 
-export default function ProductCard({ product, compact = false }) {
-  const href = productPath(product);
+export default function ProductCard({ product, compact = false, searchQuery }) {
+  const href = productPath(
+    product,
+    searchQuery ? { from: 'search', q: searchQuery } : undefined,
+  );
 
   const openDetail = (e) => {
     e.preventDefault();
@@ -27,27 +30,27 @@ export default function ProductCard({ product, compact = false }) {
           .join(' ')}
       >
         <img src={product.image} alt={product.name} loading="lazy" className="product-media-well__img" />
-        {product.style ? (
+        {/* {product.style ? (
           <span className="absolute left-2 top-2 rounded-full bg-premium-black/75 px-2.5 py-1 text-[10px] font-semibold text-brand-amber ring-1 ring-brand-amber/30 sm:left-3 sm:top-3 sm:px-3 sm:text-xs">
             {product.style}
           </span>
-        ) : null}
+        ) : null} */}
       </div>
 
       <div className={`flex flex-1 flex-col ${compact ? 'p-3 sm:p-4' : 'p-5'}`}>
         <h3 className={`line-clamp-2 text-center font-semibold text-white ${compact ? 'text-sm sm:text-base' : 'text-base'}`}>
-          {product.name}
+          {product.name} {product.abv}
         </h3>
 
-        {product.abv ? (
+        {/* {product.abv ? (
           <p className={`mt-1 text-center text-body-muted ${compact ? 'text-xs' : 'text-sm'}`}>
             ABV: <span className="text-white/90">{product.abv}</span>
           </p>
-        ) : null}
+        ) : null} */}
 
-        {!compact ? (
+        {/* {!compact ? (
           <p className="mt-3 line-clamp-2 text-center text-sm leading-relaxed text-body-muted">{product.description}</p>
-        ) : null}
+        ) : null} */}
 
         <div className={`mt-auto border-t border-white/[0.06] pt-3 ${compact ? 'mt-3' : 'mt-4'}`}>
           <ProductPrice product={product} size={compact ? 'sm' : 'md'} />

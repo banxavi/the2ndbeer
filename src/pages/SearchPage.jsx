@@ -28,13 +28,13 @@ export default function SearchPage() {
             Từ khoá: <span className="text-white/85">“{q || '—'}”</span>
           </p>
         </div>
-        <button
+        {/* <button
           type="button"
           onClick={() => navigateHome()}
           className="inline-flex h-11 items-center justify-center rounded-md border border-white/10 bg-premium-dark px-4 text-sm font-semibold text-white/90 hover:border-brand-amber/60"
         >
           ← Về trang chủ
-        </button>
+        </button> */}
       </div>
 
       <div className="mt-6 text-sm text-body-muted">
@@ -49,7 +49,7 @@ export default function SearchPage() {
 
       <div className="mt-6">
         {q && filtered.length > 0 ? (
-          <ProductGrid products={filtered} />
+          <ProductGrid products={filtered} searchQuery={q} />
         ) : q ? (
           <div className="rounded-2xl border border-white/10 bg-premium-dark p-6 text-sm text-body-muted">
             Không tìm thấy sản phẩm phù hợp. Hãy thử từ khoá khác.

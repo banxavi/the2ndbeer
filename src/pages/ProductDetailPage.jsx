@@ -4,7 +4,8 @@ import { BRAND } from '../data/brand';
 import { formatPhoneDisplay } from '../lib/formatters';
 import { buildTelHref, buildZaloHref } from '../lib/links';
 import { getProductBySlug, getProductGallery, getRelatedProducts } from '../lib/products';
-import { navigateHome } from '../lib/router';
+import { getSearchParam, useLocation } from '../lib/router';
+import ProductBreadcrumb from '../components/layout/ProductBreadcrumb';
 import ProductCard from '../components/product/ProductCard';
 import ProductImageGallery from '../components/product/ProductImageGallery';
 import ProductPrice from '../components/product/ProductPrice';
@@ -12,6 +13,10 @@ import ProductPrice from '../components/product/ProductPrice';
 const HOTLINE = BRAND.hotline;
 
 export default function ProductDetailPage({ productSlug }) {
+  const { search } = useLocation();
+  const searchQuery =
+    getSearchParam(search, 'from') === 'search' ? getSearchParam(search, 'q').trim() : '';
+
   const product = getProductBySlug(productSlug);
   const related = product ? getRelatedProducts(product.id) : [];
   const gallery = product ? getProductGallery(product) : [];
@@ -25,13 +30,13 @@ export default function ProductDetailPage({ productSlug }) {
       <div className="site-container py-16 text-center">
         <h1 className="text-2xl font-semibold text-white">Không tìm thấy sản phẩm</h1>
         <p className="mt-3 text-body-muted">Sản phẩm có thể đã ngừng kinh doanh hoặc đường dẫn không đúng.</p>
-        <button
+        {/* <button
           type="button"
           onClick={() => navigateHome()}
           className="mt-6 inline-flex min-h-11 items-center rounded-md border border-brand-amber/50 px-5 text-sm font-semibold text-brand-amber hover:border-brand-amber"
         >
           Về trang chủ
-        </button>
+        </button> */}
       </div>
     );
   }
@@ -47,17 +52,11 @@ export default function ProductDetailPage({ productSlug }) {
 
   return (
     <article className="pb-16">
-      <div className="site-container">
-        <button
-          type="button"
-          onClick={() => navigateHome('#products')}
-          className="mb-6 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-body-muted transition hover:text-brand-amber"
-        >
-          <span aria-hidden>←</span> Quay lại sản phẩm
-        </button>
+      <div className="site-container pt-10 sm:pt-12">
+        <ProductBreadcrumb product={product} />
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-          <ProductImageGallery images={gallery} alt={product.name} styleLabel={product.style} />
+          <ProductImageGallery images={gallery} alt={product.name} />
 
           <div>
             <p className="text-xs font-semibold tracking-normal text-brand-amber">CHI TIẾT SẢN PHẨM</p>
@@ -129,7 +128,7 @@ export default function ProductDetailPage({ productSlug }) {
           
             </div>
 
-            <p className="mt-4 text-xs text-body-subtle">
+            <p className="mt-4 text-xs text-body-subtle sm:text-[14px]">
               Sản phẩm không dành cho người dưới 18 tuổi và phụ nữ mang thai.
             </p>
           </div>
@@ -189,7 +188,7 @@ export default function ProductDetailPage({ productSlug }) {
             <p className="mt-2 text-sm text-body-muted">Gợi ý thêm từ bộ sưu tập {BRAND.shortName}.</p>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((p) => (
-                <ProductCard key={p.id} product={p} compact />
+                <ProductCard key={p.id} product={p} compact searchQuery={searchQuery || undefined} />
               ))}
             </div>
           </section>

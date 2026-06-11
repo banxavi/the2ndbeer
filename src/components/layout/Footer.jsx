@@ -1,65 +1,111 @@
+import { BRAND } from '../../data/brand';
+import { FOOTER } from '../../data/footer';
+import { formatPhoneDisplay } from '../../lib/formatters';
+import { buildTelHref } from '../../lib/links';
+import { navigate } from '../../lib/router';
 import BrandMark from './BrandMark';
 
-const socialLinks = [
-  {
-    label: 'Instagram',
-    href: 'https://instagram.com',
-    iconSrc: 'https://cdn.simpleicons.org/instagram/E4405F',
-  },
-  {
-    label: 'Facebook',
-    href: 'https://facebook.com',
-    iconSrc: 'https://cdn.simpleicons.org/facebook/1877F2',
-  },
-  {
-    label: 'TikTok',
-    href: 'https://tiktok.com',
-    iconSrc: 'https://cdn.simpleicons.org/tiktok/FFFFFF',
-  },
-];
+function FooterHeading({ children }) {
+  return <h3 className="footer-heading">{children}</h3>;
+}
+
+function FooterLink({ href, children }) {
+  const isInternal = href.startsWith('/') && !href.startsWith('//');
+
+  if (isInternal) {
+    return (
+      <a
+        href={href}
+        onClick={(e) => {
+          e.preventDefault();
+          navigate(href);
+        }}
+        className="text-sm text-body-muted transition hover:text-brand-amber"
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <a href={href} className="text-sm text-body-muted transition hover:text-brand-amber">
+      {children}
+    </a>
+  );
+}
 
 export default function Footer() {
   return (
     <footer className="mt-16 border-t border-white/10 bg-premium-black">
       <div className="site-container py-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          <BrandMark variant="footer" />
-
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
-            <div className="text-sm font-semibold text-white">Theo dõi chúng tôi</div>
-            <div className="mt-4 flex gap-3">
-              {socialLinks.map(({ label, href, iconSrc }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-premium-dark transition hover:border-brand-amber/60 hover:bg-premium-black"
-                >
-                  <img
-                    src={iconSrc}
-                    alt=""
-                    width={20}
-                    height={20}
-                    loading="lazy"
-                    className="h-5 w-5 object-contain"
-                  />
-                </a>
-              ))}
+            <BrandMark variant="footer" />
+            <div className="mt-8">
+              <FooterHeading>Thông tin liên hệ</FooterHeading>
+              <div className="mt-4 space-y-2 text-sm leading-relaxed text-body-muted">
+                <p className="font-semibold text-white/90">{BRAND.name}</p>
+                <p>Địa chỉ: {FOOTER.address}</p>
+                <p>
+                  Hotline:{' '}
+                  <a
+                    href={buildTelHref(BRAND.hotline)}
+                    className="font-semibold text-brand-amber transition hover:text-white"
+                  >
+                    {formatPhoneDisplay(BRAND.hotline)}
+                  </a>
+                </p>
+                <p>
+                  Facebook:{' '}
+                  <a
+                    href={BRAND.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-brand-amber transition hover:text-white"
+                  >
+                    {FOOTER.facebookLabel}
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 
           <div>
-            <div className="text-sm font-semibold text-white">Cảnh báo</div>
-            <p className="mt-3 text-sm text-body-muted">
-              Sản phẩm không dành cho người dưới 18 tuổi và phụ nữ mang thai.
-            </p>
+            <FooterHeading>Lưu ý</FooterHeading>
+            <p className="mt-4 text-sm leading-relaxed text-body-muted">{FOOTER.disclaimer}</p>
+          </div>
+
+          <div>
+            <FooterHeading>Chính sách chung</FooterHeading>
+            <ul className="mt-4 space-y-2.5">
+              {FOOTER.policies.map((item) => (
+                <li key={item.href}>
+                  <FooterLink href={item.href}>{item.label}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <FooterHeading>{FOOTER.facebookLabel}</FooterHeading>
+              <div className="mt-4 space-y-2 text-sm leading-relaxed text-body-muted">
+                <p>{FOOTER.company.legalName}</p>
+                <p>{FOOTER.company.businessLicense}</p>
+                <p>{FOOTER.company.alcoholLicense}</p>
+                <p>{FOOTER.company.representative}</p>
+              </div>
+            </div>
+
+            <div>
+              <FooterHeading>Khuyến cáo</FooterHeading>
+              <p className="mt-4 text-sm leading-relaxed text-body-muted">{FOOTER.warning}</p>
+            </div>
           </div>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-body-subtle">
-          © {new Date().getFullYear()} LUVINI & CO. All rights reserved.
+          © {new Date().getFullYear()} {BRAND.name} All rights reserved.
         </div>
       </div>
     </footer>
